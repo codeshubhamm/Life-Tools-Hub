@@ -378,52 +378,90 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Enhanced Tools Section */}
+      {/* Enhanced Tools Section (Replaced with Categorized Tool Store) */}
       <section id="tools" className="py-20 px-4">
         <div className="container mx-auto max-w-7xl">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-              Essential Tools for Everyone
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Discover our collection of {tools.length} carefully crafted tools designed to make your daily tasks easier and faster.
-            </p>
-          </div>
-
-          {/* Enhanced Tools Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-8">
-            {filteredTools.map((tool, index) => {
-              // Generate a unique pastel color for each card
-              const hue = (index * 360) / filteredTools.length;
-              const pastel = `hsl(${hue}, 70%, 88%)`;
-              const bgColor = { background: pastel };
-              return (
-                <div key={tool.title} className="animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
-                  <ToolCard
-                    title={tool.title}
-                    description={tool.description}
-                    icon={tool.icon}
-                    path={tool.path}
-                    bgColor=""
-                    style={bgColor}
-                  />
-                </div>
-              );
-            })}
-          </div>
-
-          {filteredTools.length === 0 && (
-            <div className="text-center py-16">
-              <p className="text-xl text-muted-foreground mb-6">No tools found matching your search.</p>
-              <Button 
-                variant="outline" 
-                onClick={() => setSearchTerm("")}
-                className="text-lg px-8 py-3 rounded-full"
-              >
-                Clear Search
-              </Button>
+          <div className="w-full bg-white/90 rounded-3xl shadow-2xl p-6 md:p-12 border border-gray-200 backdrop-blur-lg animate-fade-in flex flex-col items-center">
+            <h3 className="text-2xl md:text-3xl font-bold mb-8 text-center text-gray-900">All-in-One Tool Store</h3>
+            <div className="w-full space-y-10">
+              {/* Everyday Calculators */}
+              <div>
+                <div className="flex items-center gap-2 mb-4 text-xl font-semibold text-[#b45309]"><span role="img" aria-label="calculator">🧮</span> Everyday Calculators</div>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                  {tools.filter(t => [
+                    'Age Calculator', 'BMI Calculator', 'Percentage Calculator', 'Loan EMI Calculator', 'Discount Calculator', 'Income Tax Calculator', 'GST Calculator', 'Currency Converter'
+                  ].includes(t.title)).map(tool => (
+                    <li key={tool.title}>
+                      <Link to={tool.path} className="flex items-start gap-4 p-5 rounded-2xl hover:bg-yellow-50 transition group text-base font-semibold bg-white shadow-sm border border-yellow-100">
+                        <tool.icon className="w-8 h-8 text-yellow-500 group-hover:scale-110 transition mt-1" />
+                        <div>
+                          <div className="font-bold text-gray-900 mb-1">{tool.title}</div>
+                          <div className="text-gray-600 text-sm font-normal">{tool.description}</div>
+                        </div>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              {/* Academic & Writing Tools */}
+              <div>
+                <div className="flex items-center gap-2 mb-4 text-xl font-semibold text-[#7c3aed]"><span role="img" aria-label="books">📚</span> Academic & Writing Tools</div>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                  {tools.filter(t => [
+                    'Essay & Paragraph Writer', 'Resume Builder', 'CGPA/GPA Converter', 'Tagline Generator', 'Instagram Bio Generator', 'Complaint Letter Writer', 'Leave Letter Generator', 'Username Generator', 'Text Case Converter', 'Speech to Text', 'Text to Speech'
+                  ].includes(t.title)).map(tool => (
+                    <li key={tool.title}>
+                      <Link to={tool.path} className="flex items-start gap-4 p-5 rounded-2xl hover:bg-purple-50 transition group text-base font-semibold bg-white shadow-sm border border-purple-100">
+                        <tool.icon className="w-8 h-8 text-purple-500 group-hover:scale-110 transition mt-1" />
+                        <div>
+                          <div className="font-bold text-gray-900 mb-1">{tool.title}</div>
+                          <div className="text-gray-600 text-sm font-normal">{tool.description}</div>
+                        </div>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              {/* Productivity & Planning Tools */}
+              <div>
+                <div className="flex items-center gap-2 mb-4 text-xl font-semibold text-[#0e7490]"><span role="img" aria-label="calendar">📆</span> Productivity & Planning Tools</div>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                  {tools.filter(t => [
+                    'Daily Planner Generator', 'Weekly Planner Generator', 'Countdown Timer', 'Typing Speed Tester'
+                  ].includes(t.title)).map(tool => (
+                    <li key={tool.title}>
+                      <Link to={tool.path} className="flex items-start gap-4 p-5 rounded-2xl hover:bg-sky-50 transition group text-base font-semibold bg-white shadow-sm border border-sky-100">
+                        <tool.icon className="w-8 h-8 text-sky-500 group-hover:scale-110 transition mt-1" />
+                        <div>
+                          <div className="font-bold text-gray-900 mb-1">{tool.title}</div>
+                          <div className="text-gray-600 text-sm font-normal">{tool.description}</div>
+                        </div>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              {/* Smart Utility Tools */}
+              <div>
+                <div className="flex items-center gap-2 mb-4 text-xl font-semibold text-[#15803d]"><span role="img" aria-label="box">📦</span> Smart Utility Tools</div>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                  {tools.filter(t => [
+                    'Bill Splitter', 'Unit Converter', 'Time Zone Converter', 'Word Counter', 'Birthday Wish Generator', 'Motivational Quotes', 'Certificate Maker', 'QRCode Generator'
+                  ].includes(t.title)).map(tool => (
+                    <li key={tool.title}>
+                      <Link to={tool.path} className="flex items-start gap-4 p-5 rounded-2xl hover:bg-green-50 transition group text-base font-semibold bg-white shadow-sm border border-green-100">
+                        <tool.icon className="w-8 h-8 text-green-600 group-hover:scale-110 transition mt-1" />
+                        <div>
+                          <div className="font-bold text-gray-900 mb-1">{tool.title}</div>
+                          <div className="text-gray-600 text-sm font-normal">{tool.description}</div>
+                        </div>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
-          )}
+          </div>
         </div>
       </section>
 
