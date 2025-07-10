@@ -1,0 +1,337 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 18%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 18%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 18%;
+
+    --primary: 210 100% 85%;
+    --primary-foreground: 0 0% 18%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 0 0% 18%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 0 0% 18%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 210 100% 85%;
+
+    --radius: 1rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Enhanced Custom Life Tools Hub Colors */
+    --sky-blue: 195 63% 88%;
+    --soft-peach: 23 100% 93%;
+    --mint-green: 88 55% 85%;
+    --lavender: 283 44% 89%;
+    --light-gray: 0 0% 96%;
+  }
+
+  .dark {
+    --background: 0 0% 12%;
+    --foreground: 210 40% 98%;
+
+    --card: 0 0% 12%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 0 0% 12%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 100% 75%;
+    --primary-foreground: 0 0% 12%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Dark mode enhanced custom colors */
+    --sky-blue: 195 43% 28%;
+    --soft-peach: 23 80% 33%;
+    --mint-green: 88 35% 25%;
+    --lavender: 283 24% 29%;
+    --light-gray: 0 0% 16%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer utilities {
+  .font-inter {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+  
+  .bg-peach {
+    background: linear-gradient(135deg, #ffe5b4 80%, #fff2d1 100%);
+  }
+  .dark .bg-peach {
+    background: linear-gradient(135deg, #bfa77a 80%, #a68a5b 100%);
+  }
+  .bg-baby-pink {
+    background: linear-gradient(135deg, #ffd1dc 80%, #ffe6ef 100%);
+  }
+  .dark .bg-baby-pink {
+    background: linear-gradient(135deg, #b88a99 80%, #a86a7a 100%);
+  }
+  .bg-aqua-blue {
+    background: linear-gradient(135deg, #b4f0ff 80%, #e0faff 100%);
+  }
+  .dark .bg-aqua-blue {
+    background: linear-gradient(135deg, #6bb7c7 80%, #4a8a99 100%);
+  }
+  .bg-vanilla-cream {
+    background: linear-gradient(135deg, #fff9e3 80%, #fffbe9 100%);
+  }
+  .dark .bg-vanilla-cream {
+    background: linear-gradient(135deg, #bfb89a 80%, #a69a6a 100%);
+  }
+  .bg-pale-yellow {
+    background: linear-gradient(135deg, #fff9b2 80%, #fffde1 100%);
+  }
+  .dark .bg-pale-yellow {
+    background: linear-gradient(135deg, #bfb97a 80%, #a69a5a 100%);
+  }
+  .bg-sky-blue {
+    background: linear-gradient(135deg, #e3f3fd 80%, #c6e6fa 100%);
+  }
+  .dark .bg-sky-blue {
+    background: linear-gradient(135deg, #3a5a7a 80%, #27405a 100%);
+  }
+  .bg-mint-green {
+    background: linear-gradient(135deg, #d2f8e5 80%, #b2f1d6 100%);
+  }
+  .dark .bg-mint-green {
+    background: linear-gradient(135deg, #4a8a7a 80%, #2a5a4a 100%);
+  }
+  .bg-lavender {
+    background: linear-gradient(135deg, #f3e8fd 80%, #e3d1fa 100%);
+  }
+  .dark .bg-lavender {
+    background: linear-gradient(135deg, #6a4a8a 80%, #4a2a5a 100%);
+  }
+
+  /* Enhanced Animations */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-soft {
+    animation: pulse-soft 4s ease-in-out infinite;
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.8s ease-out forwards;
+    opacity: 0;
+  }
+
+  .animate-scale-in {
+    animation: scale-in 0.6s ease-out forwards;
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  .animate-slide-in-up {
+    animation: slide-in-up 0.8s ease-out forwards;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes pulse-soft {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.7;
+      transform: scale(1.05);
+    }
+  }
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scale-in {
+    0% {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes slide-in-up {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes glow {
+    0% {
+      box-shadow: 0 4px 20px rgba(59, 130, 246, 0.15);
+    }
+    100% {
+      box-shadow: 0 8px 40px rgba(59, 130, 246, 0.3);
+    }
+  }
+
+  /* Enhanced Tool Cards */
+  .tool-card {
+    @apply bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-xl transition-transform duration-200 ease-out cursor-pointer border border-gray-100 dark:border-gray-700 backdrop-blur-sm;
+    
+    &:hover, &:focus {
+      transform: scale(1.05);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+    }
+
+    .tool-icon {
+      @apply transition-transform duration-200;
+    }
+    &:hover .tool-icon, &:focus .tool-icon {
+      transform: scale(1.08);
+    }
+  }
+
+  /* Enhanced Gradient Background */
+  .gradient-bg {
+    background: linear-gradient(135deg, 
+      hsl(var(--sky-blue)) 0%, 
+      hsl(var(--soft-peach)) 25%, 
+      hsl(var(--mint-green)) 50%, 
+      hsl(var(--lavender)) 75%,
+      hsl(var(--sky-blue)) 100%
+    );
+    background-size: 400% 400%;
+    animation: gradient-shift 8s ease infinite;
+  }
+
+  @keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* Loading States */
+  .loading-spinner {
+    @apply animate-spin rounded-full border-4 border-gray-300 border-t-blue-600;
+  }
+
+  /* Input Focus Enhancement */
+  .input-enhanced:focus {
+    @apply ring-4 ring-blue-500/20 border-blue-500 shadow-lg;
+    transform: scale(1.02);
+  }
+
+  /* Copy Button Animation */
+  .copy-success {
+    animation: copy-success 0.6s ease-out;
+  }
+
+  @keyframes copy-success {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); background-color: #10b981; }
+    100% { transform: scale(1); }
+  }
+
+  /* Enhanced Shadows */
+  .shadow-3xl {
+    box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.25);
+  }
+
+  /* Responsive Grid Enhancements */
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    
+    @media (min-width: 640px) {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+    
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    }
+  }
+}
