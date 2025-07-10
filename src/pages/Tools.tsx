@@ -5,7 +5,7 @@ import { Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import {
-  Calculator, Heart, Type, DollarSign, FileText, User, GraduationCap, Calendar, PartyPopper, Mail, QrCode, Percent, Globe, Timer, Award, Quote, CreditCard, ArrowLeft
+  Calculator, Heart, Type, DollarSign, FileText, User, GraduationCap, Calendar, PartyPopper, Mail, QrCode, Percent, Globe, Timer, Award, Quote, CreditCard, ArrowLeft, Ruler, Instagram, Lightbulb, PenTool, Mic, Volume2, Keyboard, Tag, IndianRupee, Users
 } from "lucide-react";
 
 const tools = [
@@ -134,6 +134,104 @@ const tools = [
     icon: Award,
     path: "/tools/certificate-maker",
     category: "design"
+  },
+  {
+    title: "Unit Converter",
+    description: "Convert between different units of measurement",
+    icon: Ruler,
+    path: "/tools/unit-converter",
+    category: "utility"
+  },
+  {
+    title: "GST Calculator",
+    description: "Calculate GST amounts for Indian tax system",
+    icon: Calculator,
+    path: "/tools/gst-calculator",
+    category: "finance"
+  },
+  {
+    title: "Weekly Planner Generator",
+    description: "Plan your entire week with customizable schedules",
+    icon: Calendar,
+    path: "/tools/weekly-planner-generator",
+    category: "productivity"
+  },
+  {
+    title: "Instagram Bio Generator",
+    description: "Create catchy and unique Instagram bios",
+    icon: Instagram,
+    path: "/tools/instagram-bio-generator",
+    category: "social"
+  },
+  {
+    title: "Tagline Generator",
+    description: "Create catchy taglines for brands and businesses",
+    icon: Lightbulb,
+    path: "/tools/tagline-generator",
+    category: "business"
+  },
+  {
+    title: "Essay & Paragraph Writer",
+    description: "Generate well-structured essays and paragraphs",
+    icon: PenTool,
+    path: "/tools/essay-writer",
+    category: "writing"
+  },
+  {
+    title: "Speech to Text",
+    description: "Convert speech to text using voice recognition",
+    icon: Mic,
+    path: "/tools/speech-to-text",
+    category: "utility"
+  },
+  {
+    title: "Text to Speech",
+    description: "Convert text to natural-sounding speech",
+    icon: Volume2,
+    path: "/tools/text-to-speech",
+    category: "utility"
+  },
+  {
+    title: "Typing Speed Tester",
+    description: "Test your typing speed and accuracy",
+    icon: Keyboard,
+    path: "/tools/typing-speed-tester",
+    category: "utility"
+  },
+  {
+    title: "Discount Calculator",
+    description: "Calculate discounts, savings, and compare deals",
+    icon: Tag,
+    path: "/tools/discount-calculator",
+    category: "finance"
+  },
+  {
+    title: "Income Tax Calculator",
+    description: "Calculate income tax for Indian tax system",
+    icon: IndianRupee,
+    path: "/tools/income-tax-calculator",
+    category: "finance"
+  },
+  {
+    title: "Username Generator",
+    description: "Generate unique usernames for any platform",
+    icon: User,
+    path: "/tools/username-generator",
+    category: "utility"
+  },
+  {
+    title: "Currency Converter",
+    description: "Convert between major world currencies",
+    icon: DollarSign,
+    path: "/tools/currency-converter",
+    category: "finance"
+  },
+  {
+    title: "Invoice Generator",
+    description: "Create professional invoices with GST calculation",
+    icon: FileText,
+    path: "/tools/invoice-generator",
+    category: "business"
   }
 ];
 
@@ -141,10 +239,7 @@ const categories = [
   { label: "All", value: "all" },
   { label: "Calculators", value: "calculator" },
   { label: "Writing Tools", value: "writing" },
-  { label: "PDF Tools", value: "pdf" },
   { label: "Planning & Productivity", value: "productivity" },
-  { label: "Fun & Life Tools", value: "fun" },
-  { label: "Developer Tools", value: "developer" },
   { label: "Finance", value: "finance" },
   { label: "Education", value: "education" },
   { label: "Utility", value: "utility" },
@@ -152,6 +247,8 @@ const categories = [
   { label: "Design", value: "design" },
   { label: "Career", value: "career" },
   { label: "Social", value: "social" },
+  { label: "Business", value: "business" },
+  { label: "Health", value: "health" },
 ];
 
 export default function ToolsPage() {

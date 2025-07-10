@@ -24,6 +24,20 @@ import TextCaseConverter from "./pages/TextCaseConverter";
 import MotivationalQuotes from "./pages/MotivationalQuotes";
 import CountdownTimer from "./pages/CountdownTimer";
 import CertificateMaker from "./pages/CertificateMaker";
+import UnitConverter from "./pages/UnitConverter";
+import GSTCalculator from "./pages/GSTCalculator";
+import WeeklyPlannerGenerator from "./pages/WeeklyPlannerGenerator";
+import InstagramBioGenerator from "./pages/InstagramBioGenerator";
+import TaglineGenerator from "./pages/TaglineGenerator";
+import EssayWriter from "./pages/EssayWriter";
+import SpeechToText from "./pages/SpeechToText";
+import TextToSpeech from "./pages/TextToSpeech";
+import TypingSpeedTester from "./pages/TypingSpeedTester";
+import DiscountCalculator from "./pages/DiscountCalculator";
+import IncomeTaxCalculator from "./pages/IncomeTaxCalculator";
+import UsernameGenerator from "./pages/UsernameGenerator";
+import CurrencyConverter from "./pages/CurrencyConverter";
+import InvoiceGenerator from "./pages/InvoiceGenerator";
 import About from "./pages/About";
 import Privacy from "./pages/Privacy";
 import NotFound from "./pages/NotFound";
@@ -74,6 +88,20 @@ const App = () => (
             <Route path="/tools/motivational-quotes" element={<MotivationalQuotes />} />
             <Route path="/tools/countdown-timer" element={<CountdownTimer />} />
             <Route path="/tools/certificate-maker" element={<CertificateMaker />} />
+            <Route path="/tools/unit-converter" element={<UnitConverter />} />
+            <Route path="/tools/gst-calculator" element={<GSTCalculator />} />
+            <Route path="/tools/weekly-planner-generator" element={<WeeklyPlannerGenerator />} />
+            <Route path="/tools/instagram-bio-generator" element={<InstagramBioGenerator />} />
+            <Route path="/tools/tagline-generator" element={<TaglineGenerator />} />
+            <Route path="/tools/essay-writer" element={<EssayWriter />} />
+            <Route path="/tools/speech-to-text" element={<SpeechToText />} />
+            <Route path="/tools/text-to-speech" element={<TextToSpeech />} />
+            <Route path="/tools/typing-speed-tester" element={<TypingSpeedTester />} />
+            <Route path="/tools/discount-calculator" element={<DiscountCalculator />} />
+            <Route path="/tools/income-tax-calculator" element={<IncomeTaxCalculator />} />
+            <Route path="/tools/username-generator" element={<UsernameGenerator />} />
+            <Route path="/tools/currency-converter" element={<CurrencyConverter />} />
+            <Route path="/tools/invoice-generator" element={<InvoiceGenerator />} />
             <Route path="/about" element={<About />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="*" element={<NotFound />} />
