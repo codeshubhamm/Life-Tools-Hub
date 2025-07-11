@@ -80,11 +80,13 @@ const About = () => {
           <Card className="border-0 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-950 dark:to-purple-950">
             <CardContent className="p-8">
               <div className="text-center space-y-4">
-                <h2 className="text-2xl font-bold">Built by Shubham</h2>
+                <h2 className="text-2xl font-bold">👨‍💻 Built by Shubham Gungunwar
+                </h2>
                 <p className="text-muted-foreground max-w-2xl mx-auto">
-                  Life Tools Hub is created and maintained by Shubham, a developer passionate about 
-                  building useful tools that make everyday tasks easier. The goal is to provide 
-                  simple, effective solutions without the complexity of modern web applications.
+                Life Tools Hub is your one-stop digital home 🏠 — a cozy place where all the tools you need live under one roof. No more jumping between websites or apps. Just clean ⚡, fast 🚀, and genuinely useful 🧰 tools built with care.
+And this is just the beginning — we’re constantly building, refining, and adding more. So stay tuned… the best is yet to come ✨.
+
+
                 </p>
                 <div className="flex justify-center space-x-4 pt-4">
                   <Button variant="outline" asChild>
