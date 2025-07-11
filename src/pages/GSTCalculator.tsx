@@ -7,6 +7,8 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Switch } from "@/components/ui/switch";
 import { useToast } from "@/hooks/use-toast";
+import { Link } from "react-router-dom";
+import { ArrowLeft } from "lucide-react";
 
 const GSTCalculator = () => {
   const [amount, setAmount] = useState("");
@@ -71,18 +73,28 @@ Gross Amount: ₹${result.grossAmount.toFixed(2)}`;
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
-      
-      <div className="container mx-auto px-4 py-12 max-w-4xl">
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl mb-6">
-            <Calculator className="h-8 w-8 text-white" />
+    <div className="min-h-screen bg-background relative">
+      {/* Floating Back Button */}
+      <Button
+        asChild
+        variant="ghost"
+        size="icon"
+        className="absolute top-6 left-6 z-40 bg-white/80 hover:bg-white/90 text-gray-800 shadow rounded-full"
+        aria-label="Back to Home"
+      >
+        <Link to="/">
+          <ArrowLeft className="h-5 w-5" />
+        </Link>
+      </Button>
+      <Header searchTerm="" setSearchTerm={() => {}} />
+      <div className="container mx-auto px-4 pt-6 pb-8 max-w-4xl">
+        {/* Icon + Title + Subtitle Centered */}
+        <div className="flex flex-col items-center justify-center mb-10 mt-2">
+          <div className="inline-flex items-center justify-center w-20 h-20 bg-green-100 rounded-full shadow mb-4">
+            <Calculator className="h-10 w-10 text-gray-700" />
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            GST Calculator
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <h1 className="text-3xl md:text-4xl font-bold mb-2 text-center">GST Calculator</h1>
+          <p className="text-lg text-muted-foreground mb-2 text-center">
             Calculate GST amounts for Indian tax system with detailed breakdown
           </p>
         </div>

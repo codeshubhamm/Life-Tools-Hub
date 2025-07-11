@@ -7,14 +7,22 @@ export default function SupportMe() {
   return (
     <div className="min-h-screen bg-[#f8e8d7] flex flex-col justify-between px-2 py-8" style={{ fontFamily: 'Comic Sans MS, Comic Sans, cursive, sans-serif' }}>
       {/* Small Back Button */}
-      <Link
-        to="/"
+      <Button
+        variant="ghost"
+        size="icon"
         className="fixed top-6 left-6 z-20 bg-white/80 hover:bg-white/90 text-gray-800 shadow rounded-full p-2 flex items-center gap-1 text-sm"
-        style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.07)' }}
+        aria-label="Back to Home"
+        onClick={() => {
+          if (window.history.length > 1) {
+            window.history.back();
+          } else {
+            window.location.href = "/";
+          }
+        }}
       >
         <ArrowLeft className="h-4 w-4" />
         Back
-      </Link>
+      </Button>
       <div className="w-full max-w-5xl mx-auto flex-1 flex flex-col md:flex-row items-center justify-center gap-16 md:gap-24">
         {/* Left: QR Code Card */}
         <div className="bg-black rounded-2xl p-10 flex flex-col items-center justify-center w-full max-w-sm md:max-w-md shadow-xl min-h-[28rem]">

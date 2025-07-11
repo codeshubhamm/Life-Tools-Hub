@@ -38,32 +38,38 @@ const WordCounter = () => {
   }, [text]);
 
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
-      
-      <div className="container mx-auto px-4 py-8 max-w-4xl">
-        <div className="mb-6">
-          <Button variant="ghost" asChild className="mb-4">
-            <Link to="/">
-              <ArrowLeft className="h-4 w-4 mr-2" />
-              Back to Home
-            </Link>
-          </Button>
-          
-          <div className="text-center mb-8">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-mint-green rounded-full mb-4">
-              <Type className="h-8 w-8 text-gray-700" />
-            </div>
-            <h1 className="text-3xl md:text-4xl font-bold mb-4">Word Counter</h1>
-            <p className="text-lg text-muted-foreground">
-              Count words, characters, and reading time instantly
-            </p>
+    <div className="min-h-screen bg-background relative">
+      {/* Floating Back Button */}
+      <Button
+        variant="ghost"
+        size="icon"
+        className="absolute top-6 left-6 z-40 bg-white/80 hover:bg-white/90 text-gray-800 shadow rounded-full"
+        aria-label="Back to Home"
+        onClick={() => {
+          if (window.history.length > 1) {
+            window.history.back();
+          } else {
+            window.location.href = "/";
+          }
+        }}
+      >
+        <ArrowLeft className="h-5 w-5" />
+      </Button>
+      <Header searchTerm="" setSearchTerm={() => {}} />
+      <div className="container mx-auto px-4 pt-6 pb-8 max-w-4xl">
+        {/* Icon + Title + Subtitle Centered */}
+        <div className="flex flex-col items-center justify-center mb-10 mt-2">
+          <div className="inline-flex items-center justify-center w-20 h-20 bg-mint-green rounded-full shadow mb-4">
+            <Type className="h-10 w-10 text-gray-700" />
           </div>
+          <h1 className="text-3xl md:text-4xl font-bold mb-2 text-center">Word Counter</h1>
+          <p className="text-lg text-muted-foreground mb-2 text-center">
+            Count words, characters, and reading time instantly
+          </p>
         </div>
-
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-8 items-start">
           <div className="md:col-span-2">
-            <Card className="bg-mint-green border-0">
+            <Card className="bg-mint-green/60 border-0 shadow-md">
               <CardHeader>
                 <CardTitle className="flex items-center">
                   <Type className="h-5 w-5 mr-2" />
@@ -78,19 +84,16 @@ const WordCounter = () => {
                   placeholder="Start typing your text here..."
                   value={text}
                   onChange={(e) => setText(e.target.value)}
-                  className="min-h-[300px] resize-none"
+                  className="min-h-[220px] resize-none rounded-xl shadow-sm"
                 />
               </CardContent>
             </Card>
           </div>
-
           <div>
-            <Card className="bg-white dark:bg-gray-800">
+            <Card className="bg-white/90 dark:bg-gray-800 border-0 shadow-md">
               <CardHeader>
                 <CardTitle>Text Statistics</CardTitle>
-                <CardDescription>
-                  Live text analysis
-                </CardDescription>
+                <CardDescription>Live text analysis</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="grid grid-cols-2 gap-4">
@@ -121,6 +124,12 @@ const WordCounter = () => {
                 </div>
               </CardContent>
             </Card>
+          </div>
+        </div>
+        {/* Helpful Tip Section */}
+        <div className="mt-10 text-center">
+          <div className="inline-block bg-mint-green/40 rounded-xl px-6 py-4 text-base text-gray-700 font-medium shadow-sm">
+            💡 <span className="font-semibold">Tip:</span> Paste any text, essay, or article to instantly see word, character, and reading time stats. Great for students, writers, and professionals!
           </div>
         </div>
       </div>

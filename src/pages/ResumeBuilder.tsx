@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Link, ArrowLeft, Download, Plus, Trash2 } from "lucide-react";
+import { Link, ArrowLeft, Download, Plus, Trash2, User } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -189,22 +189,32 @@ const ResumeBuilder = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
-      
-      <div className="container mx-auto px-4 py-8 max-w-6xl">
-        <div className="mb-6">
-          <Button asChild variant="ghost" className="mb-4">
-            <Link to="/">
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              Back to Tools
-            </Link>
-          </Button>
-          
-          <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-2">
-            Resume Builder
-          </h1>
-          <p className="text-lg text-muted-foreground">
+    <div className="min-h-screen bg-background relative">
+      {/* Floating Back Button */}
+      <Button
+        variant="ghost"
+        size="icon"
+        className="absolute top-6 left-6 z-40 bg-white/80 hover:bg-white/90 text-gray-800 shadow rounded-full"
+        aria-label="Back to Home"
+        onClick={() => {
+          if (window.history.length > 1) {
+            window.history.back();
+          } else {
+            window.location.href = "/";
+          }
+        }}
+      >
+        <ArrowLeft className="h-5 w-5" />
+      </Button>
+      <Header searchTerm="" setSearchTerm={() => {}} />
+      <div className="container mx-auto px-4 pt-6 pb-8 max-w-6xl">
+        {/* Icon + Title + Subtitle Centered */}
+        <div className="flex flex-col items-center justify-center mb-10 mt-2">
+          <div className="inline-flex items-center justify-center w-20 h-20 bg-blue-100 rounded-full shadow mb-4">
+            <User className="h-10 w-10 text-gray-700" />
+          </div>
+          <h1 className="text-3xl md:text-4xl font-bold mb-2 text-center">Resume Builder</h1>
+          <p className="text-lg text-muted-foreground mb-2 text-center">
             Create professional resumes with downloadable format
           </p>
         </div>

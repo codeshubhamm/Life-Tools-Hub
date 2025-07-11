@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Calculator, IndianRupee, FileText } from "lucide-react";
+import { Calculator, IndianRupee, FileText, ArrowLeft } from "lucide-react";
+import { Link } from "react-router-dom"; // Added Link import
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -103,18 +104,28 @@ const IncomeTaxCalculator = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
-      
-      <div className="container mx-auto px-4 py-12 max-w-6xl">
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl mb-6">
-            <IndianRupee className="h-8 w-8 text-white" />
+    <div className="min-h-screen bg-background relative">
+      {/* Floating Back Button */}
+      <Button
+        asChild
+        variant="ghost"
+        size="icon"
+        className="absolute top-6 left-6 z-40 bg-white/80 hover:bg-white/90 text-gray-800 shadow rounded-full"
+        aria-label="Back to Home"
+      >
+        <Link to="/">
+          <ArrowLeft className="h-5 w-5" />
+        </Link>
+      </Button>
+      <Header searchTerm="" setSearchTerm={() => {}} />
+      <div className="container mx-auto px-4 pt-6 pb-8 max-w-6xl">
+        {/* Icon + Title + Subtitle Centered */}
+        <div className="flex flex-col items-center justify-center mb-10 mt-2">
+          <div className="inline-flex items-center justify-center w-20 h-20 bg-green-100 rounded-full shadow mb-4">
+            <IndianRupee className="h-10 w-10 text-gray-700" />
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Income Tax Calculator
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <h1 className="text-3xl md:text-4xl font-bold mb-2 text-center">Income Tax Calculator</h1>
+          <p className="text-lg text-muted-foreground mb-2 text-center">
             Calculate your income tax for FY 2023-24 with both old and new tax regimes
           </p>
         </div>

@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Tag, Calculator, Copy } from "lucide-react";
+import { Tag, Calculator, Copy, ArrowLeft } from "lucide-react";
+import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -103,18 +104,32 @@ const DiscountCalculator = () => {
   const comparisonResults = getComparisonResults();
 
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
-      
-      <div className="container mx-auto px-4 py-12 max-w-4xl">
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl mb-6">
-            <Tag className="h-8 w-8 text-white" />
+    <div className="min-h-screen bg-background relative">
+      {/* Floating Back Button */}
+      <Button
+        variant="ghost"
+        size="icon"
+        className="absolute top-6 left-6 z-40 bg-white/80 hover:bg-white/90 text-gray-800 shadow rounded-full"
+        aria-label="Back to Home"
+        onClick={() => {
+          if (window.history.length > 1) {
+            window.history.back();
+          } else {
+            window.location.href = "/";
+          }
+        }}
+      >
+        <ArrowLeft className="h-5 w-5" />
+      </Button>
+      <Header searchTerm="" setSearchTerm={() => {}} />
+      <div className="container mx-auto px-4 pt-6 pb-8 max-w-4xl">
+        {/* Icon + Title + Subtitle Centered */}
+        <div className="flex flex-col items-center justify-center mb-10 mt-2">
+          <div className="inline-flex items-center justify-center w-20 h-20 bg-green-100 rounded-full shadow mb-4">
+            <Tag className="h-10 w-10 text-gray-700" />
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Discount Calculator
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <h1 className="text-3xl md:text-4xl font-bold mb-2 text-center">Discount Calculator</h1>
+          <p className="text-lg text-muted-foreground mb-2 text-center">
             Calculate discounts, savings, and compare deals easily
           </p>
         </div>

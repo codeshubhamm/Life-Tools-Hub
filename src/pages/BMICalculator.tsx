@@ -49,23 +49,30 @@ const BMICalculator = () => {
       <Header />
       
       <div className="container mx-auto px-4 py-8 max-w-4xl">
-        <div className="mb-6">
-          <Button variant="ghost" asChild className="mb-4">
-            <Link to="/">
-              <ArrowLeft className="h-4 w-4 mr-2" />
-              Back to Home
-            </Link>
-          </Button>
-          
-          <div className="text-center mb-8">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-soft-peach rounded-full mb-4">
-              <Heart className="h-8 w-8 text-gray-700" />
-            </div>
-            <h1 className="text-3xl md:text-4xl font-bold mb-4">BMI Calculator</h1>
-            <p className="text-lg text-muted-foreground">
-              Check your Body Mass Index and health status
-            </p>
+        <Button
+          variant="ghost"
+          size="icon"
+          className="absolute top-6 left-6 z-40 bg-white/80 hover:bg-white/90 text-gray-800 shadow rounded-full"
+          aria-label="Back to Home"
+          onClick={() => {
+            if (window.history.length > 1) {
+              window.history.back();
+            } else {
+              window.location.href = "/";
+            }
+          }}
+        >
+          <ArrowLeft className="h-5 w-5" />
+        </Button>
+        
+        <div className="text-center mb-8">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-soft-peach rounded-full mb-4">
+            <Heart className="h-8 w-8 text-gray-700" />
           </div>
+          <h1 className="text-3xl md:text-4xl font-bold mb-4">BMI Calculator</h1>
+          <p className="text-lg text-muted-foreground">
+            Check your Body Mass Index and health status
+          </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
