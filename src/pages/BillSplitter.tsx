@@ -43,7 +43,6 @@ const BillSplitter = () => {
 
   return (
     <div className="min-h-screen bg-background relative">
-      {/* Floating Back Button */}
       <Button
         variant="ghost"
         size="icon"

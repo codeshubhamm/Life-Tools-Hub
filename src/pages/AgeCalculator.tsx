@@ -44,25 +44,26 @@ const AgeCalculator = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative">
+      <Button
+        variant="ghost"
+        size="icon"
+        className="absolute top-6 left-6 z-40 bg-white/80 hover:bg-white/90 text-gray-800 shadow rounded-full"
+        aria-label="Back to Home"
+        onClick={() => {
+          if (window.history.length > 1) {
+            window.history.back();
+          } else {
+            window.location.href = "/";
+          }
+        }}
+      >
+        <ArrowLeft className="h-5 w-5" />
+      </Button>
       <Header />
       
       <div className="container mx-auto px-4 py-8 max-w-4xl">
-        <Button
-          variant="ghost"
-          size="icon"
-          className="absolute top-6 left-6 z-40 bg-white/80 hover:bg-white/90 text-gray-800 shadow rounded-full"
-          aria-label="Back to Home"
-          onClick={() => {
-            if (window.history.length > 1) {
-              window.history.back();
-            } else {
-              window.location.href = "/";
-            }
-          }}
-        >
-          <ArrowLeft className="h-5 w-5" />
-        </Button>
+        
         <div className="mb-6">
           
           <div className="text-center mb-8">
