@@ -46,6 +46,7 @@ import { useLocation } from "react-router-dom";
 import Tools from "./pages/Tools";
 import Features from "./pages/Features";
 import Support from "./pages/Support";
+import SupportMe from "./pages/SupportMe";
 
 const queryClient = new QueryClient();
 
@@ -70,6 +71,7 @@ const App = () => (
             <Route path="/tools" element={<Tools />} />
             <Route path="/features" element={<Features />} />
             <Route path="/support" element={<Support />} />
+            <Route path="/support-me" element={<SupportMe />} />
             <Route path="/tools/age-calculator" element={<AgeCalculator />} />
             <Route path="/tools/bmi-calculator" element={<BMICalculator />} />
             <Route path="/tools/word-counter" element={<WordCounter />} />

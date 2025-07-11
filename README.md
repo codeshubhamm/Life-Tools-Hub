@@ -1,73 +1,86 @@
-# Welcome to your Lovable project
+# 🚀 Life Tools Hub
 
-## Project info
+A modern, minimalist, mobile-first utility hub with **30+ useful tools** — all in one place.  
+No logins. No APIs. 100% frontend-powered.
 
-**URL**: https://lovable.dev/projects/74ce8957-3bee-4381-85da-04ce30c81a20
+---
 
-## How can I edit this code?
+## 🧰 All Tools Available
 
-There are several ways of editing your application.
+### 🧮 Everyday Calculators
+- 📅 **Age Calculator** – Calculate your exact age in years, months, and days  
+- ⚖️ **BMI Calculator** – Check your Body Mass Index and health status  
+- 📉 **Percentage Calculator** – Calculate percentages, values, and totals easily  
+- 💸 **Loan EMI Calculator** – Calculate EMI, interest, and repayment details  
+- 💵 **Discount Calculator** – See savings and final price after discount  
+- 💰 **Income Tax Calculator (India)** – Estimate annual tax using Indian slabs  
+- 🧾 **GST Calculator (India)** – Calculate GST with IGST/CGST/SGST breakdown  
+- 💱 **Currency Converter** – Convert between INR, USD, EUR, and other major currencies
 
-**Use Lovable**
+---
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/74ce8957-3bee-4381-85da-04ce30c81a20) and start prompting.
+### 📝 Academic & Writing Tools
+- ✍️ **Essay & Paragraph Writer** – Generate structured content on any topic  
+- 📄 **Resume Builder** – Create professional, downloadable PDF resumes  
+- 🧮 **CGPA/GPA Converter** – Convert between GPA, CGPA, and percentage  
+- 💡 **Tagline Generator** – Generate catchy slogans and brand taglines  
+- 🌟 **Instagram Bio Generator** – Generate fun and stylish social bios  
+- 📢 **Complaint Letter Writer** – Write formal complaint or request letters  
+- 📝 **Leave Letter Generator** – Create professional leave applications  
+- 👤 **Username Generator** – Generate creative usernames for any use  
+- 🔤 **Text Case Converter** – Convert text to UPPERCASE, lowercase, etc.  
+- 🗣️ **Speech to Text** – Convert voice input into editable text  
+- 🔊 **Text to Speech** – Convert written text to natural audio output
 
-Changes made via Lovable will be committed automatically to this repo.
+---
 
-**Use your preferred IDE**
+### 📅 Productivity & Planning Tools
+- 📅 **Daily Planner Generator** – Create your daily schedule with PDF download  
+- 🗓️ **Weekly Planner Generator** – Plan your entire week efficiently  
+- ⏳ **Countdown Timer** – Create timers for events or tasks  
+- ⌨️ **Typing Speed Tester** – Measure typing speed, WPM, and accuracy  
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+---
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### 🧪 Smart Utility Tools
+- 🧮 **Bill Splitter** – Divide group expenses easily  
+- 📏 **Unit Converter** – Convert length, volume, weight, speed, temperature, etc.  
+- 🕒 **Time Zone Converter** – Convert time between any two cities  
+- 📝 **Word Counter** – Count words, characters, and reading time  
+- 🎉 **Birthday Wish Generator** – Create custom birthday messages  
+- 💬 **Motivational Quotes** – Daily inspiring quote widget  
+- 📄 **Certificate Maker** – Generate printable achievement certificates  
+- 🔲 **QR Code Generator** – Convert text or links into scannable QR codes  
 
-Follow these steps:
+---
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### 📋 Invoice & Business Tools
+- 🧾 **Invoice Generator** – Add clients, items, and GST to auto-generate clean PDF invoices
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+---
 
-# Step 3: Install the necessary dependencies.
-npm i
+## ✨ Features
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+- 🌈 Modern pastel design
+- ⚡ Fast & API-free
+- 📱 Fully responsive (mobile-first)
+- 💾 Download PDFs or copy content
+- 🔍 Real-time search & filters
+- 🔒 No login, no user data collected
+- ☁️ Works offline (some tools)
+- 🔧 Built using HTML, CSS, JS (frontend only)
 
-**Edit a file directly in GitHub**
+---
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 📬 Contact & Support
 
-**Use GitHub Codespaces**
+Have a suggestion or want to support the creator?
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+- 📩 **Email:** shubhamgungunwar@gmail.com  
+- ☕️ [**Buy Me a Coffee**](https://buymeacoffee.com/yourlink) – support the project ❤️  
+- 🌐 **Website:** [https://lifetoolshub.vercel.app](https://lifetoolshub.vercel.app)
 
-## What technologies are used for this project?
+---
 
-This project is built with:
+> Built with ❤️ to make your everyday tasks easier.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/74ce8957-3bee-4381-85da-04ce30c81a20) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)

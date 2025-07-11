@@ -40,12 +40,12 @@ const Footer = () => {
             >
               ☕️ Buy Me a Coffee
             </a>
-            <a
-              href="mailto:shubhamgungunwar@gmail.com"
+            <Link
+              to="/support-me"
               className="inline-flex items-center px-4 py-2 rounded-full bg-blue-100 hover:bg-blue-200 text-blue-900 font-semibold text-sm shadow transition-transform duration-150 hover:scale-105"
             >
               💖 Support Me
-            </a>
+            </Link>
           </div>
 
           {/* Social & Description */}

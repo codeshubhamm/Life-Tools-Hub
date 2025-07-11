@@ -53,6 +53,12 @@ const Header = ({ searchTerm, setSearchTerm }: HeaderProps) => {
           >
             ☕️ Buy Me a Coffee
           </a>
+          <Link
+            to="/support-me"
+            className="hidden md:inline-flex items-center px-4 py-2 rounded-full bg-blue-100 hover:bg-blue-200 text-blue-900 font-semibold text-sm shadow transition-transform duration-150 hover:scale-105 ml-2"
+          >
+            💖 Support Me
+          </Link>
         </div>
       </div>
       {/* Nav link hover styles */}
