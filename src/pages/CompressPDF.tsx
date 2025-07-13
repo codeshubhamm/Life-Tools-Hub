@@ -100,19 +100,19 @@ const CompressPDF = () => {
       >
         <ArrowLeft className="h-5 w-5" />
       </Button>
-      <div className="container mx-auto px-4 pt-6 pb-8 max-w-2xl flex-1">
-        <div className="flex flex-col items-center justify-center mb-10 mt-2">
-          <div className="inline-flex items-center justify-center w-20 h-20 bg-red-100 rounded-full shadow mb-4">
-            <Archive className="h-10 w-10 text-red-600" />
+      <div className="container mx-auto px-2 pt-4 pb-8 max-w-2xl flex-1">
+        <div className="flex flex-col items-center justify-center mb-8 mt-2">
+          <div className="inline-flex items-center justify-center w-16 h-16 md:w-20 md:h-20 bg-red-100 rounded-full shadow mb-4">
+            <Archive className="h-8 w-8 md:h-10 md:w-10 text-red-600" />
           </div>
-          <h1 className="text-3xl md:text-4xl font-bold mb-2 text-center">Compress PDF</h1>
-          <p className="text-lg text-muted-foreground mb-2 text-center">
+          <h1 className="text-2xl md:text-4xl font-bold mb-2 text-center">Compress PDF</h1>
+          <p className="text-base md:text-lg text-muted-foreground mb-2 text-center">
             Reduce the file size of your PDF for easier sharing and storage
           </p>
         </div>
-        <Card className="w-full shadow-2xl rounded-3xl p-8 bg-white/90">
+        <Card className="w-full shadow-2xl rounded-2xl md:rounded-3xl p-4 md:p-8 bg-white/90">
           <CardHeader className="flex flex-col items-center">
-            <CardTitle className="text-2xl font-bold">Select PDF File</CardTitle>
+            <CardTitle className="text-xl md:text-2xl font-bold">Select PDF File</CardTitle>
             <CardDescription className="text-gray-600 text-center">
               Choose a PDF file to compress. <br />
               <span className="text-xs text-gray-400">(All processing is done locally on your device for privacy.)</span>
@@ -121,8 +121,8 @@ const CompressPDF = () => {
           <CardContent>
             <div className="mb-4 flex flex-col items-center">
               <label className="w-full">
-                <div className="w-full flex items-center justify-center px-6 py-8 border-2 border-dashed border-red-300 rounded-2xl bg-red-50 hover:bg-red-100 cursor-pointer transition mb-2 text-center">
-                  <span className="text-red-600 font-semibold text-lg">Click or drag to upload PDF</span>
+                <div className="w-full flex items-center justify-center px-4 py-6 md:px-6 md:py-8 border-2 border-dashed border-red-300 rounded-xl md:rounded-2xl bg-red-50 hover:bg-red-100 cursor-pointer transition mb-2 text-center">
+                  <span className="text-red-600 font-semibold text-base md:text-lg">Click or tap to upload PDF</span>
                 </div>
                 <Input type="file" accept="application/pdf" onChange={handleFileChange} disabled={isCompressing} className="hidden" />
               </label>
@@ -141,20 +141,21 @@ const CompressPDF = () => {
                   &nbsp; (<span className="font-semibold">{beforeSize && afterSize ? Math.round(100 * (1 - afterSize / beforeSize)) : 0}%</span>)
                 </div>
                 {downloadUrl && (
-                  <a href={downloadUrl} download className="mt-2">
-                    <Button className="bg-green-600 hover:bg-green-700 text-white font-bold flex items-center gap-2">
+                  <a href={downloadUrl} download className="mt-2 w-full">
+                    <Button className="w-full bg-green-600 hover:bg-green-700 text-white font-bold flex items-center gap-2">
                       <Download className="h-5 w-5" /> Download Compressed PDF
                     </Button>
                   </a>
                 )}
-                <Button variant="ghost" className="mt-2 flex items-center gap-2 text-red-500" onClick={handleReset}>
+                <Button variant="ghost" className="mt-2 flex items-center gap-2 text-red-500 w-full" onClick={handleReset}>
                   <Trash2 className="h-5 w-5" /> Compress Another File
                 </Button>
               </div>
             )}
             {error && <div className="text-red-600 mb-2">{error}</div>}
             {isCompressing && <Progress value={progress} className="mb-4" />}
-            <Button onClick={handleCompress} disabled={isCompressing || !file} className="w-full bg-red-600 hover:bg-red-700 text-white font-bold mt-2">
+            {/* Hide main action button on mobile, show in sticky bar below */}
+            <Button onClick={handleCompress} disabled={isCompressing || !file} className="w-full bg-red-600 hover:bg-red-700 text-white font-bold mt-2 hidden md:block">
               {isCompressing ? "Compressing..." : "Compress PDF"}
             </Button>
             <div className="text-xs text-gray-400 mt-4 text-center">
@@ -166,6 +167,12 @@ const CompressPDF = () => {
           <strong>About Compress PDF:</strong> This tool helps you reduce the size of your PDF files for easier sharing and storage. Useful for emailing, uploading, or archiving large PDFs.<br/>
           <span className="block mt-2">Tip: For best results, use PDFs under 20MB. The compressed file will be automatically downloaded. All processing is done locally for your privacy.</span>
         </div>
+      </div>
+      {/* Sticky bottom action bar for mobile */}
+      <div className="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-white/95 border-t border-gray-200 backdrop-blur flex items-center justify-center px-4 py-3">
+        <Button onClick={handleCompress} disabled={isCompressing || !file} className="w-full max-w-lg bg-red-600 hover:bg-red-700 text-white font-bold text-lg py-3 rounded-xl">
+          {isCompressing ? "Compressing..." : "Compress PDF"}
+        </Button>
       </div>
       <Footer />
     </div>

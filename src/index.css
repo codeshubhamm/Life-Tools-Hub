@@ -111,6 +111,32 @@
   }
 }
 
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+  -webkit-tap-highlight-color: transparent;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', Arial, sans-serif;
+  background: #FDEEDC;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+@media (max-width: 600px) {
+  html {
+    font-size: 15px;
+  }
+  body {
+    padding-bottom: 70px;
+  }
+}
+
 @layer utilities {
   .font-inter {
     font-family: 'Inter', system-ui, -apple-system, sans-serif;

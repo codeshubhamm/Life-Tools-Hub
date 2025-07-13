@@ -449,17 +449,19 @@ const Index = () => {
             <div className="w-full space-y-10">
               {/* Everyday Calculators */}
               <div>
-                <div className="flex items-center gap-2 mb-4 text-xl font-semibold text-[#b45309]"><span role="img" aria-label="calculator">🧮</span> Everyday Calculators</div>
-                <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <div className="flex items-center gap-2 mb-4 text-xl font-semibold text-[#b45309]">
+                  <span role="img" aria-label="calculator">🧮</span> Everyday Calculators
+                </div>
+                <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 px-2 md:px-0">
                   {tools.filter(t => [
                     'Age Calculator', 'BMI Calculator', 'Percentage Calculator', 'Loan EMI Calculator', 'Discount Calculator', 'Income Tax Calculator', 'GST Calculator', 'Currency Converter'
                   ].includes(t.title)).map(tool => (
                     <li key={tool.title}>
-                      <Link to={tool.path} className="flex items-start gap-4 p-5 rounded-2xl hover:bg-yellow-50 transition group text-base font-semibold bg-white shadow-sm border border-yellow-100">
-                        <tool.icon className="w-8 h-8 text-yellow-500 group-hover:scale-110 transition mt-1" />
+                      <Link to={tool.path} className="flex flex-col md:flex-row items-start md:items-center gap-2 md:gap-4 p-3 md:p-5 rounded-lg md:rounded-2xl bg-white shadow-sm border border-yellow-100 hover:bg-yellow-50 transition group text-xs md:text-base font-semibold min-h-[90px] md:min-h-[120px]">
+                        <tool.icon className="w-7 h-7 md:w-8 md:h-8 text-yellow-500 group-hover:scale-110 transition md:mt-1" />
                         <div>
-                          <div className="font-bold text-gray-900 mb-1">{tool.title}</div>
-                          <div className="text-gray-600 text-sm font-normal">{tool.description}</div>
+                          <div className="font-bold text-gray-900 mb-1 text-xs md:text-base">{tool.title}</div>
+                          <div className="text-gray-600 text-xs md:text-sm font-normal">{tool.description}</div>
                         </div>
                       </Link>
                     </li>
@@ -469,16 +471,16 @@ const Index = () => {
               {/* Academic & Writing Tools */}
               <div>
                 <div className="flex items-center gap-2 mb-4 text-xl font-semibold text-[#7c3aed]"><span role="img" aria-label="books">📚</span> Academic & Writing Tools</div>
-                <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 px-2 md:px-0">
                   {tools.filter(t => [
                     'Essay & Paragraph Writer', 'Resume Builder', 'CGPA/GPA Converter', 'Tagline Generator', 'Instagram Bio Generator', 'Complaint Letter Writer', 'Leave Letter Generator', 'Username Generator', 'Text Case Converter', 'Speech to Text', 'Text to Speech'
                   ].includes(t.title)).map(tool => (
                     <li key={tool.title}>
-                      <Link to={tool.path} className="flex items-start gap-4 p-5 rounded-2xl hover:bg-purple-50 transition group text-base font-semibold bg-white shadow-sm border border-purple-100">
-                        <tool.icon className="w-8 h-8 text-purple-500 group-hover:scale-110 transition mt-1" />
+                      <Link to={tool.path} className="flex flex-col md:flex-row items-start md:items-center gap-2 md:gap-4 p-3 md:p-5 rounded-lg md:rounded-2xl bg-white shadow-sm border border-purple-100 hover:bg-purple-50 transition group text-xs md:text-base font-semibold min-h-[90px] md:min-h-[120px]">
+                        <tool.icon className="w-7 h-7 md:w-8 md:h-8 text-purple-500 group-hover:scale-110 transition md:mt-1" />
                         <div>
-                          <div className="font-bold text-gray-900 mb-1">{tool.title}</div>
-                          <div className="text-gray-600 text-sm font-normal">{tool.description}</div>
+                          <div className="font-bold text-gray-900 mb-1 text-xs md:text-base">{tool.title}</div>
+                          <div className="text-gray-600 text-xs md:text-sm font-normal">{tool.description}</div>
                         </div>
                       </Link>
                     </li>
@@ -488,16 +490,16 @@ const Index = () => {
               {/* Productivity & Planning Tools */}
               <div>
                 <div className="flex items-center gap-2 mb-4 text-xl font-semibold text-[#0e7490]"><span role="img" aria-label="calendar">📆</span> Productivity & Planning Tools</div>
-                <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 px-2 md:px-0">
                   {tools.filter(t => [
                     'Daily Planner Generator', 'Weekly Planner Generator', 'Countdown Timer', 'Typing Speed Tester'
                   ].includes(t.title)).map(tool => (
                     <li key={tool.title}>
-                      <Link to={tool.path} className="flex items-start gap-4 p-5 rounded-2xl hover:bg-sky-50 transition group text-base font-semibold bg-white shadow-sm border border-sky-100">
-                        <tool.icon className="w-8 h-8 text-sky-500 group-hover:scale-110 transition mt-1" />
+                      <Link to={tool.path} className="flex flex-col md:flex-row items-start md:items-center gap-2 md:gap-4 p-3 md:p-5 rounded-lg md:rounded-2xl bg-white shadow-sm border border-sky-100 hover:bg-sky-50 transition group text-xs md:text-base font-semibold min-h-[90px] md:min-h-[120px]">
+                        <tool.icon className="w-7 h-7 md:w-8 md:h-8 text-sky-500 group-hover:scale-110 transition md:mt-1" />
                         <div>
-                          <div className="font-bold text-gray-900 mb-1">{tool.title}</div>
-                          <div className="text-gray-600 text-sm font-normal">{tool.description}</div>
+                          <div className="font-bold text-gray-900 mb-1 text-xs md:text-base">{tool.title}</div>
+                          <div className="text-gray-600 text-xs md:text-sm font-normal">{tool.description}</div>
                         </div>
                       </Link>
                     </li>
@@ -507,16 +509,16 @@ const Index = () => {
               {/* Smart Utility Tools */}
               <div>
                 <div className="flex items-center gap-2 mb-4 text-xl font-semibold text-[#15803d]"><span role="img" aria-label="box">📦</span> Smart Utility Tools</div>
-                <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 px-2 md:px-0">
                   {tools.filter(t => [
                     'Bill Splitter', 'Unit Converter', 'Time Zone Converter', 'Word Counter', 'Birthday Wish Generator', 'Motivational Quotes', 'Certificate Maker', 'QRCode Generator', 'YouTube Video Downloader'
                   ].includes(t.title)).map(tool => (
                     <li key={tool.title}>
-                      <Link to={tool.path} className="flex items-start gap-4 p-5 rounded-2xl hover:bg-green-50 transition group text-base font-semibold bg-white shadow-sm border border-green-100">
-                        <tool.icon className="w-8 h-8 text-green-600 group-hover:scale-110 transition mt-1" />
+                      <Link to={tool.path} className="flex flex-col md:flex-row items-start md:items-center gap-2 md:gap-4 p-3 md:p-5 rounded-lg md:rounded-2xl bg-white shadow-sm border border-green-100 hover:bg-green-50 transition group text-xs md:text-base font-semibold min-h-[90px] md:min-h-[120px]">
+                        <tool.icon className="w-7 h-7 md:w-8 md:h-8 text-green-600 group-hover:scale-110 transition md:mt-1" />
                         <div>
-                          <div className="font-bold text-gray-900 mb-1">{tool.title}</div>
-                          <div className="text-gray-600 text-sm font-normal">{tool.description}</div>
+                          <div className="font-bold text-gray-900 mb-1 text-xs md:text-base">{tool.title}</div>
+                          <div className="text-gray-600 text-xs md:text-sm font-normal">{tool.description}</div>
                         </div>
                       </Link>
                     </li>
@@ -526,16 +528,16 @@ const Index = () => {
               {/* PDF Tools */}
               <div>
                 <div className="flex items-center gap-2 mb-4 text-xl font-semibold text-[#dc2626]"><span role="img" aria-label="pdf">📄</span> PDF Tools</div>
-                <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 px-2 md:px-0">
                   {tools.filter(t => [
                     'Merge PDF', 'Split PDF', 'Compress PDF', 'PDF to Word', 'Add Watermark', 'PDF Password Protector/Remover', 'PDF Editor', 'PDF to Image Converter'
                   ].includes(t.title)).map(tool => (
                     <li key={tool.title}>
-                      <Link to={tool.path} className="flex items-start gap-4 p-5 rounded-2xl hover:bg-red-50 transition group text-base font-semibold bg-white shadow-sm border border-red-100">
-                        <tool.icon className="w-8 h-8 text-red-500 group-hover:scale-110 transition mt-1" />
+                      <Link to={tool.path} className="flex flex-col md:flex-row items-start md:items-center gap-2 md:gap-4 p-3 md:p-5 rounded-lg md:rounded-2xl bg-white shadow-sm border border-red-100 hover:bg-red-50 transition group text-xs md:text-base font-semibold min-h-[90px] md:min-h-[120px]">
+                        <tool.icon className="w-7 h-7 md:w-8 md:h-8 text-red-500 group-hover:scale-110 transition md:mt-1" />
                         <div>
-                          <div className="font-bold text-gray-900 mb-1">{tool.title}</div>
-                          <div className="text-gray-600 text-sm font-normal">{tool.description}</div>
+                          <div className="font-bold text-gray-900 mb-1 text-xs md:text-base">{tool.title}</div>
+                          <div className="text-gray-600 text-xs md:text-sm font-normal">{tool.description}</div>
                         </div>
                       </Link>
                     </li>
