@@ -5,7 +5,7 @@ import { Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import {
-  Calculator, Heart, Type, DollarSign, FileText, User, GraduationCap, Calendar, PartyPopper, Mail, QrCode, Percent, Globe, Timer, Award, Quote, CreditCard, ArrowLeft, Ruler, Instagram, Lightbulb, PenTool, Mic, Volume2, Keyboard, Tag, IndianRupee, Users
+  Calculator, Heart, Type, DollarSign, FileText, User, GraduationCap, Calendar, PartyPopper, Mail, QrCode, Percent, Globe, Timer, Award, Quote, CreditCard, ArrowLeft, Ruler, Instagram, Lightbulb, PenTool, Mic, Volume2, Keyboard, Tag, IndianRupee, Users, Play, Scissors, Archive, Image, Droplet, Shuffle
 } from "lucide-react";
 
 const tools = [
@@ -232,6 +232,107 @@ const tools = [
     icon: FileText,
     path: "/tools/invoice-generator",
     category: "business"
+  },
+  {
+    title: "YouTube Video Downloader",
+    description: "Download YouTube videos in various formats and qualities",
+    icon: Play,
+    path: "/tools/youtube-downloader",
+    category: "utility"
+  },
+  {
+    title: "Merge PDF",
+    description: "Combine multiple PDF files into one.",
+    icon: FileText,
+    path: "/tools/merge-pdf",
+    category: "pdf"
+  },
+  {
+    title: "Split PDF",
+    description: "Extract selected pages from a PDF.",
+    icon: Scissors,
+    path: "/tools/split-pdf",
+    category: "pdf"
+  },
+  {
+    title: "Compress PDF",
+    description: "Reduce the file size of your PDF.",
+    icon: Archive,
+    path: "/tools/compress-pdf",
+    category: "pdf"
+  },
+  {
+    title: "PDF to Word",
+    description: "Convert PDF files to editable Word documents.",
+    icon: FileText,
+    path: "/tools/pdf-to-word",
+    category: "pdf"
+  },
+  {
+    title: "Add Watermark",
+    description: "Add a watermark to your PDF file.",
+    icon: Droplet,
+    path: "/tools/add-watermark",
+    category: "pdf"
+  },
+  {
+    title: 'PDF Password Protector/Remover',
+    description: 'Add or remove password protection from your PDF files.',
+    icon: FileText,
+    path: '/tools/pdf-password',
+    category: 'pdf'
+  },
+  {
+    title: 'PDF Editor',
+    description: 'Edit PDF content, metadata, and more.',
+    icon: FileText,
+    path: '/tools/pdf-editor',
+    category: 'pdf'
+  },
+  {
+    title: 'PDF to Image Converter',
+    description: 'Convert PDF pages to images.',
+    icon: Image,
+    path: '/tools/pdf-to-image',
+    category: 'pdf'
+  }
+];
+
+const pdfTools = [
+  {
+    title: "Merge PDF",
+    description: "Combine multiple PDF files into one.",
+    icon: FileText,
+    path: "/tools/merge-pdf",
+    category: "pdf"
+  },
+  {
+    title: "Split PDF",
+    description: "Extract selected pages from a PDF.",
+    icon: Scissors,
+    path: "/tools/split-pdf",
+    category: "pdf"
+  },
+  {
+    title: "Compress PDF",
+    description: "Reduce the file size of your PDF.",
+    icon: Archive,
+    path: "/tools/compress-pdf",
+    category: "pdf"
+  },
+  {
+    title: "PDF to Word",
+    description: "Convert PDF files to editable Word documents.",
+    icon: FileText,
+    path: "/tools/pdf-to-word",
+    category: "pdf"
+  },
+  {
+    title: "Add Watermark",
+    description: "Add a watermark to your PDF file.",
+    icon: Droplet,
+    path: "/tools/add-watermark",
+    category: "pdf"
   }
 ];
 
@@ -369,7 +470,6 @@ export default function ToolsPage() {
         </div>
       </div>
       {/* Add spacing below search/filter bar */}
-      <div className="mb-8" />
       {/* Tools grid */}
       <div className="container mx-auto max-w-7xl px-4 pb-20">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-8">

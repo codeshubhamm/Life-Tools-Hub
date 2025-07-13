@@ -172,11 +172,11 @@ const DailyPlannerGenerator = () => {
 
   return (
     <div className="min-h-screen bg-background relative">
-      {/* Floating Back Button */}
+      <Header searchTerm="" setSearchTerm={() => {}} />
       <Button
         variant="ghost"
         size="icon"
-        className="absolute top-6 left-6 z-40 bg-white/80 hover:bg-white/90 text-gray-800 shadow rounded-full"
+        className="fixed top-28 left-6 z-50 bg-white hover:bg-gray-50 text-gray-700 border border-gray-200 shadow-md rounded-full w-10 h-10"
         aria-label="Back to Home"
         onClick={() => {
           if (window.history.length > 1) {
@@ -188,7 +188,6 @@ const DailyPlannerGenerator = () => {
       >
         <ArrowLeft className="h-5 w-5" />
       </Button>
-      <Header searchTerm="" setSearchTerm={() => {}} />
       <div className="container mx-auto px-4 pt-6 pb-8 max-w-4xl">
         {/* Icon + Title + Subtitle Centered */}
         <div className="flex flex-col items-center justify-center mb-10 mt-2">
@@ -287,7 +286,7 @@ const DailyPlannerGenerator = () => {
                             <SelectValue />
                           </SelectTrigger>
                           <SelectContent>
-                            <SelectItem value="work">💼 Work</SelectItem>
+                            <SelectItem value="work">�� Work</SelectItem>
                             <SelectItem value="personal">👤 Personal</SelectItem>
                             <SelectItem value="health">🏃 Health</SelectItem>
                             <SelectItem value="education">📚 Education</SelectItem>

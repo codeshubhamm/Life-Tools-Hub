@@ -38,6 +38,7 @@ import IncomeTaxCalculator from "./pages/IncomeTaxCalculator";
 import UsernameGenerator from "./pages/UsernameGenerator";
 import CurrencyConverter from "./pages/CurrencyConverter";
 import InvoiceGenerator from "./pages/InvoiceGenerator";
+import YouTubeDownloader from "./pages/YouTubeDownloader";
 import About from "./pages/About";
 import Privacy from "./pages/Privacy";
 import NotFound from "./pages/NotFound";
@@ -47,6 +48,12 @@ import Tools from "./pages/Tools";
 import Features from "./pages/Features";
 import Support from "./pages/Support";
 import SupportMe from "./pages/SupportMe";
+import MergePDF from "./pages/MergePDF";
+import SplitPDF from "./pages/SplitPDF";
+import CompressPDF from "./pages/CompressPDF";
+import WordtoPDF from "./pages/WordtoPDF";
+import AddWatermark from "./pages/AddWatermark";
+import PDFEditor from './pages/PDFEditor';
 
 const queryClient = new QueryClient();
 
@@ -104,6 +111,13 @@ const App = () => (
             <Route path="/tools/username-generator" element={<UsernameGenerator />} />
             <Route path="/tools/currency-converter" element={<CurrencyConverter />} />
             <Route path="/tools/invoice-generator" element={<InvoiceGenerator />} />
+            <Route path="/tools/youtube-downloader" element={<YouTubeDownloader />} />
+            <Route path="/tools/merge-pdf" element={<MergePDF />} />
+            <Route path="/tools/split-pdf" element={<SplitPDF />} />
+            <Route path="/tools/compress-pdf" element={<CompressPDF />} />
+            <Route path="/tools/pdf-to-word" element={<WordtoPDF />} />
+            <Route path="/tools/add-watermark" element={<AddWatermark />} />
+            <Route path="/tools/pdf-editor" element={<PDFEditor />} />
             <Route path="/about" element={<About />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="*" element={<NotFound />} />

@@ -46,10 +46,11 @@ const BMICalculator = () => {
 
   return (
     <div className="min-h-screen bg-background relative">
+      <Header />
       <Button
         variant="ghost"
         size="icon"
-        className="absolute top-6 left-6 z-40 bg-white/80 hover:bg-white/90 text-gray-800 shadow rounded-full"
+        className="fixed top-28 left-6 z-50 bg-white hover:bg-gray-50 text-gray-700 border border-gray-200 shadow-md rounded-full w-10 h-10"
         aria-label="Back to Home"
         onClick={() => {
           if (window.history.length > 1) {
@@ -61,7 +62,6 @@ const BMICalculator = () => {
       >
         <ArrowLeft className="h-5 w-5" />
       </Button>
-      <Header />
       
       <div className="container mx-auto px-4 py-8 max-w-4xl">
         

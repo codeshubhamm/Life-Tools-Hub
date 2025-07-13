@@ -56,11 +56,11 @@ const PercentageCalculator = () => {
 
   return (
     <div className="min-h-screen bg-background relative">
-      {/* Floating Back Button */}
+      <Header searchTerm="" setSearchTerm={() => {}} />
       <Button
         variant="ghost"
         size="icon"
-        className="absolute top-6 left-6 z-40 bg-white/80 hover:bg-white/90 text-gray-800 shadow rounded-full"
+        className="fixed top-28 left-6 z-50 bg-white hover:bg-gray-50 text-gray-700 border border-gray-200 shadow-md rounded-full w-10 h-10"
         aria-label="Back to Home"
         onClick={() => {
           if (window.history.length > 1) {
@@ -72,7 +72,6 @@ const PercentageCalculator = () => {
       >
         <ArrowLeft className="h-5 w-5" />
       </Button>
-      <Header searchTerm="" setSearchTerm={() => {}} />
       <div className="container mx-auto px-4 pt-6 pb-8 max-w-4xl">
         {/* Icon + Title + Subtitle Centered */}
         <div className="flex flex-col items-center justify-center mb-10 mt-2">
@@ -126,7 +125,7 @@ const PercentageCalculator = () => {
                 </div>
                 <Button 
                   onClick={calculatePercentage}
-                  className="w-full bg-gradient-to-r from-green-600 to-teal-600 hover:from-green-700 hover:to-teal-700"
+                  className="w-full bg-gradient-to-r from-sky-100 to-blue-100 hover:from-sky-200 hover:to-blue-200 text-sky-800 border border-sky-200 shadow-sm"
                   size="lg"
                 >
                   <Calculator className="mr-2 h-5 w-5" />
@@ -170,7 +169,7 @@ const PercentageCalculator = () => {
                 </div>
                 <Button 
                   onClick={calculateValue}
-                  className="w-full bg-gradient-to-r from-green-600 to-teal-600 hover:from-green-700 hover:to-teal-700"
+                  className="w-full bg-gradient-to-r from-sky-100 to-blue-100 hover:from-sky-200 hover:to-blue-200 text-sky-800 border border-sky-200 shadow-sm"
                   size="lg"
                 >
                   <Calculator className="mr-2 h-5 w-5" />
@@ -214,7 +213,7 @@ const PercentageCalculator = () => {
                 </div>
                 <Button 
                   onClick={calculateTotal}
-                  className="w-full bg-gradient-to-r from-green-600 to-teal-600 hover:from-green-700 hover:to-teal-700"
+                  className="w-full bg-gradient-to-r from-sky-100 to-blue-100 hover:from-sky-200 hover:to-blue-200 text-sky-800 border border-sky-200 shadow-sm"
                   size="lg"
                 >
                   <Calculator className="mr-2 h-5 w-5" />
