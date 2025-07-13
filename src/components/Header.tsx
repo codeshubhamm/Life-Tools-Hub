@@ -16,13 +16,13 @@ const Header = ({ searchTerm, setSearchTerm }: HeaderProps) => {
   const [showMobileSearch, setShowMobileSearch] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur md:bg-background/95 md:backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container mx-auto px-4 h-16 md:h-20 flex items-center justify-between">
+    <header className="sticky top-0 z-50 w-full border-b bg-white shadow-md md:bg-background/95 md:backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="container mx-auto px-4 h-14 md:h-20 flex items-center justify-between">
         <Link to="/" className="flex items-center hover:opacity-90 transition-opacity">
           <img
             src="/LOGO.png"
             alt="Life Tools Hub Logo"
-            className="h-16 md:h-32 w-auto max-w-xs object-contain"
+            className="h-24 md:h-32 w-auto max-w-xs object-contain"
           />
         </Link>
         {/* Desktop Nav */}
@@ -60,7 +60,7 @@ const Header = ({ searchTerm, setSearchTerm }: HeaderProps) => {
           </Link>
         </div>
         {/* Mobile Nav */}
-        <div className="md:hidden flex items-center gap-2">
+        <div className="md:hidden flex items-center gap-3">
           <Button variant="ghost" size="icon" onClick={() => setShowMobileSearch(true)} aria-label="Search">
             <Search className="h-6 w-6 text-gray-500" />
           </Button>
@@ -70,8 +70,8 @@ const Header = ({ searchTerm, setSearchTerm }: HeaderProps) => {
         </div>
         {/* Mobile Nav Drawer */}
         {mobileNavOpen && (
-          <div className="fixed inset-0 z-50 bg-black/40 flex justify-end md:hidden">
-            <nav className="w-64 bg-white dark:bg-gray-900 h-full shadow-lg flex flex-col p-6 gap-4 animate-slide-in">
+          <div className="fixed inset-0 z-50 bg-black/40 flex justify-end md:hidden transition-all duration-300">
+            <nav className="w-64 h-full bg-white dark:bg-gray-900 shadow-lg flex flex-col p-6 gap-4 animate-slide-in transition-all duration-300">
               <Button variant="ghost" size="icon" className="self-end mb-2" onClick={() => setMobileNavOpen(false)} aria-label="Close Menu">
                 <X className="h-6 w-6" />
               </Button>
@@ -152,6 +152,15 @@ const Header = ({ searchTerm, setSearchTerm }: HeaderProps) => {
         @media (max-width: 768px) {
           .nav-link {
             font-size: 1.1rem;
+          }
+        }
+        @media (max-width: 768px) {
+          .animate-slide-in {
+            animation: slideInRight 0.3s cubic-bezier(0.4,0,0.2,1);
+          }
+          @keyframes slideInRight {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
           }
         }
       `}</style>
