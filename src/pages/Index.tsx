@@ -258,7 +258,6 @@ const Index = () => {
       path: "/tools/invoice-generator",
       category: "business"
     },
-
     {
       title: "Merge PDF",
       description: "Combine multiple PDF files into one.",
@@ -303,27 +302,14 @@ const Index = () => {
     },
     {
       title: 'PDF Editor',
-      description: 'Edit PDF content, metadata, and reorder pages.',
+      description: 'Edit PDF metadata and reorder pages.',
       icon: FileText,
       path: '/tools/pdf-editor',
-      category: 'pdf'
-    },
-    {
-      title: 'PDF to Image Converter',
-      description: 'Convert PDF pages to images.',
-      icon: FileText,
-      path: '/tools/pdf-to-image',
       category: 'pdf'
     }
   ];
 
-  const filteredTools = tools.filter(tool => 
-    tool.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    tool.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    tool.category.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-
-  const suggestions = searchTerm
+  const filteredTools = searchTerm
     ? tools.filter(tool =>
         tool.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
         tool.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -335,55 +321,105 @@ const Index = () => {
     <div className="min-h-screen bg-[#FDEEDC]">
       <Header searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 
-      {/* Hero Section: premium feel, one unique feature per image, images positioned for premium look */}
-      <section className="w-full min-h-[80vh] flex flex-col md:flex-row items-start justify-between px-6 md:px-24 pt-8 md:pt-28 pb-12 md:pb-0 gap-8 md:gap-0 bg-[#FDEEDC]">
-        {/* Left: Headline, Subheadline, Button (logo removed, text higher) */}
-        <div className="flex-1 flex flex-col items-start justify-start max-w-xl md:pr-8 md:-mt-8">
-          <h1 className="text-[3.5rem] md:text-[5.5rem] font-serif font-bold text-gray-900 leading-[1.05] mb-8" style={{letterSpacing: '-0.04em'}}>
-            Tools For Everyday<br />
-            <span className="block text-[3.5rem] md:text-[5.5rem] font-serif font-bold text-primary" style={{letterSpacing: '-0.04em'}}>Life</span>
-          </h1>
-          <p className="text-xl md:text-2xl text-gray-800 mb-10" style={{lineHeight: '1.4'}}>Life’s too short for cluttered apps.<br />Use simple tools that save time — all in one place.</p>
-          <Button asChild size="lg" className="rounded-xl px-8 py-3 text-lg font-semibold bg-gradient-to-r from-yellow-400 to-orange-300 hover:from-yellow-500 hover:to-orange-400 text-white transition-all duration-150 mt-2">
-            <Link to="/features">LEARN MORE</Link>
-          </Button>
+      {/* Hero Section: Perfect balanced design */}
+      <section className="w-full min-h-[85vh] relative overflow-hidden bg-gradient-to-br from-[#FDEEDC] via-[#FEF7E0] to-[#F0F9FF]">
+        {/* Background decorative elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute -top-24 -right-24 w-72 h-72 bg-gradient-to-br from-pink-200/30 to-purple-200/30 rounded-full blur-3xl"></div>
+          <div className="absolute -bottom-24 -left-24 w-72 h-72 bg-gradient-to-tr from-blue-200/30 to-cyan-200/30 rounded-full blur-3xl"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-gradient-to-r from-yellow-200/20 to-orange-200/20 rounded-full blur-3xl"></div>
         </div>
-        {/* Right: Two images, each with one unique, premium feature, minimal pastel border boxes */}
-        <div className="flex-1 flex flex-col items-end justify-center gap-8 md:gap-12 max-w-xl md:pl-8 mt-0 md:-mt-20 md:-mt-32 relative">
-          {/* First image and cloud message box to the right */}
-          <div className="flex items-center w-full mb-4 md:mb-8 justify-center mt-2" style={{position: 'relative'}}>
-            <div className="bg-[#EADCF8] rounded-2xl p-3 md:p-4 inline-block ml-8 md:ml-16 md:-ml-16 z-10">
-              <img src="/graphic 1.png" alt="Illustration 1" className="w-80 md:w-[28rem] h-auto" />
-            </div>
-            <div className="hidden md:block ml-4 flex-1">
-              {/* Cloud message box */}
-              <div className="relative w-full max-w-[600px]">
-                <div className="bg-white rounded-[2rem] shadow-lg px-10 py-2.5 text-base font-medium text-gray-800 whitespace-normal leading-snug italic border-0 w-full" style={{borderRadius: '2rem', boxShadow: '0 4px 24px 0 rgba(180,160,255,0.10)'}}>
-                  From resumes to planners — all done in minutes.
-                </div>
-                {/* Tail */}
-                <svg className="absolute -left-6 top-6" width="32" height="32" viewBox="0 0 32 32" fill="none">
-                  <path d="M32 0C32 17.6731 0 0 0 32" fill="#fff"/>
-                </svg>
+
+        <div className="relative z-10 container mx-auto px-6 md:px-24 pt-6 md:pt-16 pb-10">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-14">
+            {/* Left: Headline and CTA */}
+            <div className="flex-1 flex flex-col items-start justify-center max-w-2xl">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-700 mb-5 shadow-sm">
+                <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                ✨ 39+ Tools Available
+              </div>
+              
+              <h1 className="text-[3rem] md:text-[4.5rem] font-serif font-bold text-gray-900 leading-[1.05] mb-5" style={{letterSpacing: '-0.04em'}}>
+                Tools For Everyday<br />
+                <span className="block text-[3rem] md:text-[4.5rem] font-serif font-bold bg-gradient-to-r from-orange-500 via-pink-500 to-purple-600 bg-clip-text text-transparent" style={{letterSpacing: '-0.04em'}}>Life</span>
+              </h1>
+              
+              <p className="text-xl md:text-2xl text-gray-700 mb-7 leading-relaxed">
+                Life's too short for cluttered apps.<br />
+                <span className="font-semibold text-gray-800">Use simple tools that save time — all in one place.</span>
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button asChild size="lg" className="rounded-xl px-7 py-4 text-lg font-semibold bg-gradient-to-r from-orange-400 to-pink-500 hover:from-orange-500 hover:to-pink-600 text-white transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                  <Link to="/tools">EXPLORE TOOLS</Link>
+                </Button>
+                <Button asChild variant="outline" size="lg" className="rounded-xl px-7 py-4 text-lg font-semibold border-2 border-gray-300 hover:border-gray-400 bg-white/80 backdrop-blur-sm transition-all duration-300">
+                  <Link to="/features">LEARN MORE</Link>
+                </Button>
               </div>
             </div>
-          </div>
-          {/* Second image and cloud message box to the left */}
-          <div className="flex items-center w-full -mt-2 md:-mt-6" style={{position: 'relative'}}>
-            <div className="hidden md:block flex-1 mr-4">
-              {/* Cloud message box */}
-              <div className="relative w-full max-w-[600px]">
-                <div className="bg-white rounded-[2rem] shadow-lg px-10 py-2.5 text-base font-medium text-gray-800 whitespace-normal leading-snug italic border-0 w-full" style={{borderRadius: '2rem', boxShadow: '0 4px 24px 0 rgba(180,255,200,0.10)'}}>
-                  That’s the kind of tools I’ve been looking for
+
+            {/* Right: Compact image layout */}
+            <div className="flex-1 relative">
+              <div className="grid grid-cols-2 gap-5 md:gap-7 max-w-2xl mx-auto">
+                {/* Top row: Hand speaker and Two girls */}
+                <div className="space-y-5">
+                  {/* Hand speaker with floating message */}
+                  <div className="relative group">
+                    <div className="bg-gradient-to-br from-purple-100 to-pink-100 rounded-3xl p-4 md:p-5 shadow-xl border border-purple-200/50 transform transition-all duration-500 group-hover:scale-105 group-hover:rotate-1">
+                      <img 
+                        src="/a hand speacker mic .png" 
+                        alt="Voice tools and communication" 
+                        className="w-full h-auto object-contain max-h-36 md:max-h-44" 
+                      />
+                    </div>
+                    {/* Floating message bubble */}
+                    <div className="absolute -top-3 -right-3 md:-top-4 md:-right-4 bg-white rounded-2xl px-4 py-2 shadow-lg border border-gray-200 transform transition-all duration-300 group-hover:scale-110">
+                      <p className="text-sm font-medium text-gray-700">"Speech to text is amazing!"</p>
+                      <div className="absolute -bottom-2 right-4 w-3 h-3 bg-white border-r border-b border-gray-200 transform rotate-45"></div>
+                    </div>
+                  </div>
+
+                  {/* Two girls gossiping with floating message */}
+                  <div className="relative group">
+                    <div className="bg-gradient-to-br from-green-100 to-blue-100 rounded-3xl p-4 md:p-5 shadow-xl border border-green-200/50 transform transition-all duration-500 group-hover:scale-105 group-hover:-rotate-1">
+                      <img 
+                        src="/two girls gossiping .png" 
+                        alt="Social tools and sharing" 
+                        className="w-full h-auto object-contain max-h-36 md:max-h-44" 
+                      />
+                    </div>
+                    {/* Floating message bubble */}
+                    <div className="absolute -top-3 -left-3 md:-top-4 md:-left-4 bg-white rounded-2xl px-4 py-2 shadow-lg border border-gray-200 transform transition-all duration-300 group-hover:scale-110">
+                      <p className="text-sm font-medium text-gray-700">"Perfect for planning!"</p>
+                      <div className="absolute -bottom-2 left-4 w-3 h-3 bg-white border-l border-b border-gray-200 transform rotate-45"></div>
+                    </div>
+                  </div>
                 </div>
-                {/* Tail */}
-                <svg className="absolute -right-6 top-6 rotate-180" width="32" height="32" viewBox="0 0 32 32" fill="none">
-                  <path d="M32 0C32 17.6731 0 0 0 32" fill="#fff"/>
-                </svg>
+
+                {/* Bottom row: Hand holding phone (centered) */}
+                <div className="flex items-end justify-center">
+                  <div className="relative group">
+                    <div className="bg-gradient-to-br from-orange-100 to-yellow-100 rounded-3xl p-4 md:p-5 shadow-xl border border-orange-200/50 transform transition-all duration-500 group-hover:scale-105 group-hover:rotate-1">
+                      <img 
+                        src="/hand holding phone.png" 
+                        alt="Mobile-friendly tools" 
+                        className="w-full h-auto object-contain max-h-36 md:max-h-44" 
+                      />
+                    </div>
+                    {/* Floating message bubble */}
+                    <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-white rounded-2xl px-4 py-2 shadow-lg border border-gray-200 transform transition-all duration-300 group-hover:scale-110">
+                      <p className="text-sm font-medium text-gray-700 whitespace-nowrap">"Works on my phone!"</p>
+                      <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-3 h-3 bg-white border-l border-b border-gray-200 transform rotate-45"></div>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-            <div className="bg-[#D6F5A7] rounded-2xl p-3 md:p-4 inline-block mr-8 md:mr-20 z-10">
-              <img src="/graphic 2.png" alt="Illustration 2" className="w-80 md:w-[28rem] h-auto" />
+
+              {/* Decorative floating elements */}
+              <div className="absolute -top-6 -right-6 w-16 h-16 bg-gradient-to-r from-pink-400 to-purple-400 rounded-full opacity-20 animate-bounce"></div>
+              <div className="absolute -bottom-6 -left-6 w-12 h-12 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full opacity-20 animate-bounce" style={{animationDelay: '1s'}}></div>
+              <div className="absolute top-1/2 -right-3 w-8 h-8 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full opacity-20 animate-pulse"></div>
             </div>
           </div>
         </div>
@@ -401,7 +437,7 @@ const Index = () => {
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-8 text-lg text-left">
               <li className="flex items-start gap-4">
                 <span className="flex items-center justify-center w-12 h-12 rounded-full bg-[#fef9c3] text-2xl shadow">🧰</span>
-                <span className="font-semibold text-gray-900">Access 20+ daily-use tools without any signups.</span>
+                <span className="font-semibold text-gray-900">Access 39+ daily-use tools without any signups.</span>
               </li>
               <li className="flex items-start gap-4">
                 <span className="flex items-center justify-center w-12 h-12 rounded-full bg-[#bae6fd] text-2xl shadow">⚡️</span>
@@ -462,12 +498,15 @@ const Index = () => {
                   ))}
                 </ul>
               </div>
-              {/* Academic & Writing Tools */}
+              
+              {/* Writing & Academic Tools */}
               <div>
-                <div className="flex items-center gap-2 mb-4 text-xl font-semibold text-[#7c3aed]"><span role="img" aria-label="books">📚</span> Academic & Writing Tools</div>
+                <div className="flex items-center gap-2 mb-4 text-xl font-semibold text-[#7c3aed]">
+                  <span role="img" aria-label="writing">✍️</span> Writing & Academic Tools
+                </div>
                 <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 px-2 md:px-0">
                   {tools.filter(t => [
-                    'Essay & Paragraph Writer', 'Resume Builder', 'CGPA/GPA Converter', 'Tagline Generator', 'Instagram Bio Generator', 'Complaint Letter Writer', 'Leave Letter Generator', 'Username Generator', 'Text Case Converter', 'Speech to Text', 'Text to Speech'
+                    'Essay & Paragraph Writer', 'Resume Builder', 'CGPA/GPA Converter', 'Tagline Generator', 'Instagram Bio Generator', 'Complaint Letter Writer', 'Leave Letter Generator', 'Username Generator', 'Text Case Converter', 'Word Counter'
                   ].includes(t.title)).map(tool => (
                     <li key={tool.title}>
                       <Link to={tool.path} className="flex flex-col md:flex-row items-start md:items-center gap-2 md:gap-4 p-3 md:p-5 rounded-lg md:rounded-2xl bg-white shadow-sm border border-purple-100 hover:bg-purple-50 transition group text-xs md:text-base font-semibold min-h-[90px] md:min-h-[120px]">
@@ -481,9 +520,12 @@ const Index = () => {
                   ))}
                 </ul>
               </div>
+              
               {/* Productivity & Planning Tools */}
               <div>
-                <div className="flex items-center gap-2 mb-4 text-xl font-semibold text-[#0e7490]"><span role="img" aria-label="calendar">📆</span> Productivity & Planning Tools</div>
+                <div className="flex items-center gap-2 mb-4 text-xl font-semibold text-[#0e7490]">
+                  <span role="img" aria-label="calendar">📆</span> Productivity & Planning Tools
+                </div>
                 <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 px-2 md:px-0">
                   {tools.filter(t => [
                     'Daily Planner Generator', 'Weekly Planner Generator', 'Countdown Timer', 'Typing Speed Tester'
@@ -500,9 +542,12 @@ const Index = () => {
                   ))}
                 </ul>
               </div>
+              
               {/* Smart Utility Tools */}
               <div>
-                <div className="flex items-center gap-2 mb-4 text-xl font-semibold text-[#15803d]"><span role="img" aria-label="box">📦</span> Smart Utility Tools</div>
+                <div className="flex items-center gap-2 mb-4 text-xl font-semibold text-[#15803d]">
+                  <span role="img" aria-label="box">📦</span> Smart Utility Tools
+                </div>
                 <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 px-2 md:px-0">
                   {tools.filter(t => [
                     'Bill Splitter', 'Unit Converter', 'Time Zone Converter', 'Word Counter', 'Birthday Wish Generator', 'Motivational Quotes', 'Certificate Maker', 'QRCode Generator'
@@ -519,12 +564,15 @@ const Index = () => {
                   ))}
                 </ul>
               </div>
+              
               {/* PDF Tools */}
               <div>
-                <div className="flex items-center gap-2 mb-4 text-xl font-semibold text-[#dc2626]"><span role="img" aria-label="pdf">📄</span> PDF Tools</div>
+                <div className="flex items-center gap-2 mb-4 text-xl font-semibold text-[#dc2626]">
+                  <span role="img" aria-label="pdf">📄</span> PDF Tools
+                </div>
                 <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 px-2 md:px-0">
                   {tools.filter(t => [
-                    'Merge PDF', 'Split PDF', 'Compress PDF', 'PDF to Word', 'Add Watermark', 'PDF Password Protector/Remover', 'PDF Editor', 'PDF to Image Converter'
+                    'Merge PDF', 'Split PDF', 'Compress PDF', 'PDF to Word', 'Add Watermark', 'PDF Password Protector/Remover', 'PDF Editor'
                   ].includes(t.title)).map(tool => (
                     <li key={tool.title}>
                       <Link to={tool.path} className="flex flex-col md:flex-row items-start md:items-center gap-2 md:gap-4 p-3 md:p-5 rounded-lg md:rounded-2xl bg-white shadow-sm border border-red-100 hover:bg-red-50 transition group text-xs md:text-base font-semibold min-h-[90px] md:min-h-[120px]">

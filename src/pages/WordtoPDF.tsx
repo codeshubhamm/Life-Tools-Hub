@@ -31,7 +31,7 @@ const WordtoPDF = () => {
     const formData = new FormData();
     formData.append("file", file);
     try {
-      const response = await fetch("http://127.0.0.1:8000/word-to-pdf", {
+      const response = await fetch("/api/pdf-to-word", {
         method: "POST",
         body: formData,
       });
