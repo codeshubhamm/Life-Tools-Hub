@@ -38,7 +38,7 @@ import IncomeTaxCalculator from "./pages/IncomeTaxCalculator";
 import UsernameGenerator from "./pages/UsernameGenerator";
 import CurrencyConverter from "./pages/CurrencyConverter";
 import InvoiceGenerator from "./pages/InvoiceGenerator";
-import YouTubeDownloader from "./pages/YouTubeDownloader";
+
 import About from "./pages/About";
 import Privacy from "./pages/Privacy";
 import NotFound from "./pages/NotFound";
@@ -111,7 +111,7 @@ const App = () => (
             <Route path="/tools/username-generator" element={<UsernameGenerator />} />
             <Route path="/tools/currency-converter" element={<CurrencyConverter />} />
             <Route path="/tools/invoice-generator" element={<InvoiceGenerator />} />
-            <Route path="/tools/youtube-downloader" element={<YouTubeDownloader />} />
+
             <Route path="/tools/merge-pdf" element={<MergePDF />} />
             <Route path="/tools/split-pdf" element={<SplitPDF />} />
             <Route path="/tools/compress-pdf" element={<CompressPDF />} />

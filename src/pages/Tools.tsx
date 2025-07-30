@@ -5,7 +5,7 @@ import { Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import {
-  Calculator, Heart, Type, DollarSign, FileText, User, GraduationCap, Calendar, PartyPopper, Mail, QrCode, Percent, Globe, Timer, Award, Quote, CreditCard, ArrowLeft, Ruler, Instagram, Lightbulb, PenTool, Mic, Volume2, Keyboard, Tag, IndianRupee, Users, Play, Scissors, Archive, Image, Droplet, Shuffle
+  Calculator, Heart, Type, DollarSign, FileText, User, GraduationCap, Calendar, PartyPopper, Mail, QrCode, Percent, Globe, Timer, Award, Quote, CreditCard, ArrowLeft, Ruler, Instagram, Lightbulb, PenTool, Mic, Volume2, Keyboard, Tag, IndianRupee, Users, Scissors, Archive, Image, Droplet, Shuffle
 } from "lucide-react";
 
 const tools = [
@@ -233,13 +233,7 @@ const tools = [
     path: "/tools/invoice-generator",
     category: "business"
   },
-  {
-    title: "YouTube Video Downloader",
-    description: "Download YouTube videos in various formats and qualities",
-    icon: Play,
-    path: "/tools/youtube-downloader",
-    category: "utility"
-  },
+
   {
     title: "Merge PDF",
     description: "Combine multiple PDF files into one.",

@@ -1,6 +1,6 @@
 
 import { Link, useNavigate } from "react-router-dom";
-import { Calculator, Heart, Type, DollarSign, FileText, User, GraduationCap, Calendar, PartyPopper, Mail, ArrowRight, Search, QrCode, Percent, Globe, Timer, Award, Quote, Clock, CreditCard, Ruler, Instagram, Lightbulb, PenTool, Mic, Volume2, Keyboard, Tag, IndianRupee, Users, Play, Scissors, Archive, Droplet } from "lucide-react";
+import { Calculator, Heart, Type, DollarSign, FileText, User, GraduationCap, Calendar, PartyPopper, Mail, ArrowRight, Search, QrCode, Percent, Globe, Timer, Award, Quote, Clock, CreditCard, Ruler, Instagram, Lightbulb, PenTool, Mic, Volume2, Keyboard, Tag, IndianRupee, Users, Scissors, Archive, Droplet } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ToolCard from "@/components/ToolCard";
@@ -258,13 +258,7 @@ const Index = () => {
       path: "/tools/invoice-generator",
       category: "business"
     },
-    {
-      title: "YouTube Video Downloader",
-      description: "Download YouTube videos in various formats and qualities",
-      icon: Play,
-      path: "/tools/youtube-downloader",
-      category: "utility"
-    },
+
     {
       title: "Merge PDF",
       description: "Combine multiple PDF files into one.",
@@ -511,7 +505,7 @@ const Index = () => {
                 <div className="flex items-center gap-2 mb-4 text-xl font-semibold text-[#15803d]"><span role="img" aria-label="box">📦</span> Smart Utility Tools</div>
                 <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 px-2 md:px-0">
                   {tools.filter(t => [
-                    'Bill Splitter', 'Unit Converter', 'Time Zone Converter', 'Word Counter', 'Birthday Wish Generator', 'Motivational Quotes', 'Certificate Maker', 'QRCode Generator', 'YouTube Video Downloader'
+                    'Bill Splitter', 'Unit Converter', 'Time Zone Converter', 'Word Counter', 'Birthday Wish Generator', 'Motivational Quotes', 'Certificate Maker', 'QRCode Generator'
                   ].includes(t.title)).map(tool => (
                     <li key={tool.title}>
                       <Link to={tool.path} className="flex flex-col md:flex-row items-start md:items-center gap-2 md:gap-4 p-3 md:p-5 rounded-lg md:rounded-2xl bg-white shadow-sm border border-green-100 hover:bg-green-50 transition group text-xs md:text-base font-semibold min-h-[90px] md:min-h-[120px]">
