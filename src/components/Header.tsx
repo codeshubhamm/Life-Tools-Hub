@@ -89,7 +89,7 @@ const Header = ({ searchTerm, setSearchTerm }: HeaderProps) => {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-white shadow-md md:bg-background/95 md:backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container mx-auto px-4 h-14 md:h-20 flex items-center justify-between">
+      <div className="container mx-auto px-4 h-20 md:h-20 flex items-center justify-between">
         <Link to="/" className="flex items-center hover:opacity-90 transition-opacity">
           <img
             src="/LOGO.png"

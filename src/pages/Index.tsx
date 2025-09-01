@@ -362,7 +362,7 @@ const Index = () => {
       <Header searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 
       {/* Hero Section: Life Tools Hub Image with Scroll Arrow */}
-      <section className="w-full h-screen relative overflow-hidden -mt-14 md:mt-0">
+      <section className="w-full h-screen relative overflow-hidden -mt-20 md:mt-0">
         {/* Background Image - Desktop/Laptop */}
         <div className="absolute inset-0 hidden md:block">
           <img 
