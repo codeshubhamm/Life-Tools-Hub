@@ -7,6 +7,7 @@ import ToolCard from "@/components/ToolCard";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useState, useRef, useEffect } from "react";
+import SEO from "@/components/SEO";
 
 const Index = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -261,6 +262,32 @@ const Index = () => {
 
   ];
 
+  // Structured data for tools
+  const toolsStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Life Tools Hub Tools",
+    "description": "Collection of free online tools for everyday tasks",
+    "numberOfItems": tools.length,
+    "itemListElement": tools.map((tool, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "item": {
+        "@type": "SoftwareApplication",
+        "name": tool.title,
+        "description": tool.description,
+        "url": `https://life-tools-hub.com${tool.path}`,
+        "applicationCategory": tool.category,
+        "operatingSystem": "Web Browser",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    }))
+  };
+
   const filteredTools = searchTerm
     ? tools.filter(tool =>
         tool.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -303,8 +330,35 @@ const Index = () => {
     }
   };
 
+  // Structured data for the homepage
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Life Tools Hub",
+    "description": "Free online tools for everyday tasks - calculators, generators, converters, and more. No signup required.",
+    "url": "https://life-tools-hub.com",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://life-tools-hub.com/tools?search={search_term_string}",
+      "query-input": "required name=search_term_string"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": "Free online tools"
+    }
+  };
+
   return (
     <div className="min-h-screen bg-[#FDEEDC]">
+      <SEO 
+        title="Free Online Tools - Calculators, Generators & Converters"
+        description="Access 39+ free online tools for everyday tasks. Calculators, text tools, generators, converters, and more. No signup required. Simplify your life with Life Tools Hub."
+        keywords="free online tools, calculators, generators, converters, text tools, productivity tools, word counter, age calculator, BMI calculator, resume builder, QR code generator, text to speech, speech to text"
+        canonical="/"
+        structuredData={[structuredData, toolsStructuredData]}
+      />
       <Header searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 
       {/* Hero Section: Compact design with new images */}
