@@ -361,100 +361,32 @@ const Index = () => {
       />
       <Header searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 
-      {/* Hero Section: Compact design with new images */}
-      <section className="w-full min-h-[80vh] relative overflow-hidden bg-gradient-to-br from-[#FDEEDC] via-[#FEF7E0] to-[#F0F9FF]">
-        {/* Background decorative elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -top-20 -right-20 w-60 h-60 bg-gradient-to-br from-pink-200/30 to-purple-200/30 rounded-full blur-3xl"></div>
-          <div className="absolute -bottom-20 -left-20 w-60 h-60 bg-gradient-to-tr from-blue-200/30 to-cyan-200/30 rounded-full blur-3xl"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-gradient-to-r from-yellow-200/20 to-orange-200/20 rounded-full blur-3xl"></div>
+      {/* Hero Section: Life Tools Hub Image with Scroll Arrow */}
+      <section className="w-full h-screen relative overflow-hidden -mt-14 md:mt-0">
+        {/* Background Image - Desktop/Laptop */}
+        <div className="absolute inset-0 hidden md:block">
+          <img 
+            src="/Favicon Of Life Tools Hub Logo/Life Tools Hub.png" 
+            alt="Life Tools Hub" 
+            className="w-full h-full object-cover"
+          />
         </div>
 
-        <div className="relative z-10 container mx-auto px-6 md:px-24 pt-4 md:pt-12 pb-8">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
-            {/* Left: Headline and CTA */}
-            <div className="flex-1 flex flex-col items-start justify-center max-w-2xl ml-0 md:ml-8 lg:ml-12">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/80 backdrop-blur-sm rounded-full text-xs font-medium text-gray-700 mb-4 shadow-sm">
-                <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span>
-                ✨ 39+ Tools Available
-              </div>
-              
-              <h1 className="text-[3rem] md:text-[5rem] font-serif font-bold text-gray-900 leading-[1.05] mb-4" style={{letterSpacing: '-0.04em'}}>
-            Tools For Everyday<br />
-                <span className="block text-[3rem] md:text-[5rem] font-serif font-bold bg-gradient-to-r from-orange-500 via-pink-500 to-purple-600 bg-clip-text text-transparent" style={{letterSpacing: '-0.04em'}}>Life</span>
-          </h1>
-              
-              <p className="text-xl md:text-2xl text-gray-700 mb-6 leading-relaxed">
-                Life's too short for cluttered apps.<br />
-                <span className="font-semibold text-gray-800">Use simple tools that save time — all in one place.</span>
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-3">
-                <Button asChild size="lg" className="rounded-xl px-6 py-3 text-lg font-semibold bg-gradient-to-r from-orange-400 to-pink-500 hover:from-orange-500 hover:to-pink-600 text-white transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-                  <Link to="/tools">EXPLORE TOOLS</Link>
-                </Button>
-                <Button asChild variant="outline" size="lg" className="rounded-xl px-6 py-3 text-lg font-semibold border-2 border-gray-300 hover:border-gray-400 bg-white/80 backdrop-blur-sm transition-all duration-300">
-            <Link to="/features">LEARN MORE</Link>
-          </Button>
+        {/* Background Image - Mobile */}
+        <div className="absolute inset-0 md:hidden">
+          <img 
+            src="/Life Tools Hub Mobile View.png" 
+            alt="Life Tools Hub Mobile" 
+            className="w-full h-full object-contain"
+          />
         </div>
-            </div>
 
-            {/* Right: Compact image layout */}
-            <div className="flex-1 relative">
-              <div className="grid grid-cols-2 gap-6 md:gap-8 max-w-2xl mx-auto">
-                {/* Top row: Hand speaker and Two girls */}
-                <div className="space-y-6">
-                  {/* Hand speaker without background container */}
-                  <div className="relative group">
-                    <img 
-                      src="/a hand speacker mic .png" 
-                      alt="Voice tools and communication" 
-                      className="w-full h-auto object-contain max-h-40 md:max-h-56 lg:max-h-64 drop-shadow-lg transform transition-all duration-500 group-hover:scale-105 group-hover:rotate-1" 
-                    />
-                    {/* Floating message bubble */}
-                    <div className="absolute -top-3 -right-3 md:-top-4 md:-right-4 bg-white/95 backdrop-blur-sm rounded-xl px-4 py-2 shadow-md border border-gray-200 transform transition-all duration-300 group-hover:scale-110">
-                      <p className="text-sm md:text-base font-medium text-gray-700">"Speech to text is amazing!"</p>
-                      <div className="absolute -bottom-1 right-4 w-2 h-2 bg-white/95 border-r border-b border-gray-200 transform rotate-45"></div>
-                    </div>
-                  </div>
-
-                  {/* Two girls gossiping without background container */}
-                  <div className="relative group">
-                    <img 
-                      src="/two girls gossiping .png" 
-                      alt="Social tools and sharing" 
-                      className="w-full h-auto object-contain max-h-40 md:max-h-56 lg:max-h-64 drop-shadow-lg transform transition-all duration-500 group-hover:scale-105 group-hover:-rotate-1" 
-                    />
-                    {/* Floating message bubble */}
-                    <div className="absolute -top-3 -left-3 md:-top-4 md:-left-4 bg-white/95 backdrop-blur-sm rounded-xl px-4 py-2 shadow-md border border-gray-200 transform transition-all duration-300 group-hover:scale-110">
-                      <p className="text-sm md:text-base font-medium text-gray-700">"Perfect for planning!"</p>
-                      <div className="absolute -bottom-1 left-4 w-2 h-2 bg-white/95 border-l border-b border-gray-200 transform rotate-45"></div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Bottom row: Hand holding phone (centered) */}
-                <div className="flex items-end justify-center">
-                  <div className="relative group">
-                    <img 
-                      src="/hand holding phone.png" 
-                      alt="Mobile-friendly tools" 
-                      className="w-full h-auto object-contain max-h-40 md:max-h-56 lg:max-h-64 drop-shadow-lg transform transition-all duration-500 group-hover:scale-105 group-hover:rotate-1" 
-                    />
-                    {/* Floating message bubble */}
-                    <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-white/95 backdrop-blur-sm rounded-xl px-4 py-2 shadow-md border border-gray-200 transform transition-all duration-300 group-hover:scale-110">
-                      <p className="text-sm md:text-base font-medium text-gray-700 whitespace-nowrap">"Works on my phone!"</p>
-                      <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-white/95 border-l border-b border-gray-200 transform rotate-45"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Decorative floating elements */}
-              <div className="absolute -top-4 -right-4 w-12 h-12 bg-gradient-to-r from-pink-400 to-purple-400 rounded-full opacity-20 animate-bounce"></div>
-              <div className="absolute -bottom-4 -left-4 w-8 h-8 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full opacity-20 animate-bounce" style={{animationDelay: '1s'}}></div>
-              <div className="absolute top-1/2 -right-2 w-6 h-6 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full opacity-20 animate-pulse"></div>
-            </div>
+        {/* Simple Scroll Arrow */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
+          <div className="animate-bounce">
+            <svg className="w-8 h-8 text-white drop-shadow-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
           </div>
         </div>
       </section>

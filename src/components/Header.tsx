@@ -94,7 +94,7 @@ const Header = ({ searchTerm, setSearchTerm }: HeaderProps) => {
           <img
             src="/LOGO.png"
             alt="Life Tools Hub Logo"
-            className="h-24 md:h-32 w-auto max-w-xs object-contain"
+            className="h-16 md:h-24 w-auto max-w-xs object-contain"
           />
         </Link>
         {/* Desktop Nav */}
@@ -249,43 +249,52 @@ const Header = ({ searchTerm, setSearchTerm }: HeaderProps) => {
         
         {/* Request Tool Modal */}
         {showRequestTool && (
-          <div className="fixed inset-0 z-50 bg-black/40 flex items-center justify-center p-4">
-            <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-2xl p-6 w-full max-w-md animate-scale-in">
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-xl font-semibold flex items-center gap-2">
+          <div className="fixed inset-0 z-[9999] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4" style={{ top: '0', left: '0', right: '0', bottom: '0' }}>
+            <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-2xl p-6 w-full max-w-md max-h-[90vh] overflow-y-auto transform transition-all duration-300 scale-100" style={{ margin: 'auto' }}>
+              <div className="flex items-center justify-between mb-6">
+                <h3 className="text-xl font-semibold flex items-center gap-2 text-gray-900 dark:text-white">
                   <MessageCircle className="h-5 w-5 text-blue-500" />
                   Request a Tool
                 </h3>
-                <Button variant="ghost" size="icon" onClick={() => setShowRequestTool(false)}>
+                <Button 
+                  variant="ghost" 
+                  size="icon" 
+                  onClick={() => setShowRequestTool(false)}
+                  className="hover:bg-gray-100 dark:hover:bg-gray-800"
+                >
                   <X className="h-5 w-5" />
                 </Button>
               </div>
-              <div className="space-y-4">
-                <p className="text-gray-600 dark:text-gray-300">
+              <div className="space-y-6">
+                <p className="text-gray-600 dark:text-gray-300 text-center">
                   Have an idea for a tool that would make your life easier? Let us know!
                 </p>
-                <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
-                  <p className="text-sm text-blue-800 dark:text-blue-200 mb-2">
+                <div className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 p-4 rounded-xl border border-blue-100 dark:border-blue-800">
+                  <p className="text-sm text-blue-800 dark:text-blue-200 mb-3 font-medium">
                     📧 Send your tool request to:
                   </p>
                   <a 
                     href="mailto:shubhamgunguwnwar07@gmail.com?subject=Tool Request - Life Tools Hub&body=Hi! I would like to request a new tool for Life Tools Hub:%0D%0A%0D%0ATool Name: %0D%0ADescription: %0D%0AFeatures needed: %0D%0A%0D%0AThank you!"
-                    className="text-blue-600 dark:text-blue-400 font-medium hover:underline"
+                    className="text-blue-600 dark:text-blue-400 font-semibold hover:underline break-all"
                   >
                     shubhamgunguwnwar07@gmail.com
                   </a>
                 </div>
-                <div className="flex gap-2 pt-2">
+                <div className="flex gap-3 pt-2">
                   <Button
                     onClick={() => {
                       window.open('mailto:shubhamgunguwnwar07@gmail.com?subject=Tool Request - Life Tools Hub&body=Hi! I would like to request a new tool for Life Tools Hub:%0D%0A%0D%0ATool Name: %0D%0ADescription: %0D%0AFeatures needed: %0D%0A%0D%0AThank you!');
                       setShowRequestTool(false);
                     }}
-                    className="flex-1"
+                    className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-medium"
                   >
                     Send Email
                   </Button>
-                  <Button variant="outline" onClick={() => setShowRequestTool(false)} className="flex-1">
+                  <Button 
+                    variant="outline" 
+                    onClick={() => setShowRequestTool(false)} 
+                    className="flex-1 border-gray-300 hover:border-gray-400"
+                  >
                     Close
                   </Button>
                 </div>

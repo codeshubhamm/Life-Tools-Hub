@@ -74,10 +74,16 @@ const SEO = ({
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       
       {/* Favicon and App Icons */}
-      <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-      <link rel="apple-touch-icon" sizes="180x180" href="/LOGO.png" />
-      <link rel="icon" type="image/png" sizes="32x32" href="/LOGO.png" />
-      <link rel="icon" type="image/png" sizes="16x16" href="/LOGO.png" />
+      <link rel="icon" type="image/x-icon" href="/Favicon Of Life Tools Hub Logo/favicon.ico" />
+      <link rel="apple-touch-icon" sizes="180x180" href="/Favicon Of Life Tools Hub Logo/apple-touch-icon.png" />
+      <link rel="icon" type="image/png" sizes="48x48" href="/Favicon Of Life Tools Hub Logo/android-chrome-192x192.png" />
+      <link rel="icon" type="image/png" sizes="32x32" href="/Favicon Of Life Tools Hub Logo/favicon-32x32.png" />
+      <link rel="icon" type="image/png" sizes="16x16" href="/Favicon Of Life Tools Hub Logo/favicon-16x16.png" />
+      <link rel="manifest" href="/Favicon Of Life Tools Hub Logo/site.webmanifest" />
+      <meta name="theme-color" content="#FDEEDC" />
+      <meta name="msapplication-TileColor" content="#FDEEDC" />
+      <meta name="msapplication-TileImage" content="/Favicon Of Life Tools Hub Logo/android-chrome-192x192.png" />
+      <meta name="msapplication-config" content="/Favicon Of Life Tools Hub Logo/browserconfig.xml" />
     </Helmet>
   );
 };
