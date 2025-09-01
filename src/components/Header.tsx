@@ -94,7 +94,7 @@ const Header = ({ searchTerm, setSearchTerm }: HeaderProps) => {
           <img
             src="/LOGO.png"
             alt="Life Tools Hub Logo"
-            className="h-16 md:h-24 w-auto max-w-xs object-contain"
+            className="h-24 md:h-28 w-auto max-w-xs object-contain"
           />
         </Link>
         {/* Desktop Nav */}
