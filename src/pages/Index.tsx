@@ -351,7 +351,7 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#FDEEDC]">
+    <div className="min-h-screen bg-gray-100">
       <SEO 
         title="Free Online Tools - Calculators, Generators & Converters"
         description="Access 39+ free online tools for everyday tasks. Calculators, text tools, generators, converters, and more. No signup required. Simplify your life with Life Tools Hub."
