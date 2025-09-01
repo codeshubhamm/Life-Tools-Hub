@@ -1,6 +1,6 @@
 
 import { Link, useNavigate } from "react-router-dom";
-import { Calculator, Heart, Type, DollarSign, FileText, User, GraduationCap, Calendar, PartyPopper, Mail, ArrowRight, Search, QrCode, Percent, Globe, Timer, Award, Quote, Clock, CreditCard, Ruler, Instagram, Lightbulb, PenTool, Mic, Volume2, Keyboard, Tag, IndianRupee, Users, Scissors, Archive, Droplet } from "lucide-react";
+import { Calculator, Heart, Type, DollarSign, FileText, User, GraduationCap, Calendar, PartyPopper, Mail, ArrowRight, Search, QrCode, Percent, Globe, Timer, Award, Quote, Clock, CreditCard, Ruler, Instagram, Lightbulb, PenTool, Mic, Volume2, Keyboard, Tag, IndianRupee, Users } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ToolCard from "@/components/ToolCard";
@@ -258,55 +258,7 @@ const Index = () => {
       path: "/tools/invoice-generator",
       category: "business"
     },
-    {
-      title: "Merge PDF",
-      description: "Combine multiple PDF files into one.",
-      icon: FileText,
-      path: "/tools/merge-pdf",
-      category: "pdf"
-    },
-    {
-      title: "Split PDF",
-      description: "Extract selected pages from a PDF.",
-      icon: Scissors,
-      path: "/tools/split-pdf",
-      category: "pdf"
-    },
-    {
-      title: "Compress PDF",
-      description: "Reduce the file size of your PDF.",
-      icon: Archive,
-      path: "/tools/compress-pdf",
-      category: "pdf"
-    },
-    {
-      title: "PDF to Word",
-      description: "Convert PDF files to editable Word documents.",
-      icon: FileText,
-      path: "/tools/pdf-to-word",
-      category: "pdf"
-    },
-    {
-      title: "Add Watermark",
-      description: "Add a watermark to your PDF file.",
-      icon: Droplet,
-      path: "/tools/add-watermark",
-      category: "pdf"
-    },
-    {
-      title: 'PDF Password Protector/Remover',
-      description: 'Add or remove password protection from your PDF files.',
-      icon: FileText,
-      path: '/tools/pdf-password',
-      category: 'pdf'
-    },
-    {
-      title: 'PDF Editor',
-      description: 'Edit PDF metadata and reorder pages.',
-      icon: FileText,
-      path: '/tools/pdf-editor',
-      category: 'pdf'
-    }
+
   ];
 
   const filteredTools = searchTerm
@@ -316,6 +268,40 @@ const Index = () => {
         tool.category.toLowerCase().includes(searchTerm.toLowerCase())
       ).slice(0, 6)
     : [];
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchTerm.trim() && filteredTools.length > 0) {
+      navigate(filteredTools[0].path);
+    } else if (searchTerm.trim()) {
+      navigate(`/tools?search=${encodeURIComponent(searchTerm)}`);
+    }
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (!showSuggestions || filteredTools.length === 0) return;
+    
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      setActiveSuggestion(prev => 
+        prev < filteredTools.length - 1 ? prev + 1 : prev
+      );
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      setActiveSuggestion(prev => prev > 0 ? prev - 1 : -1);
+    } else if (e.key === 'Enter') {
+      e.preventDefault();
+      if (activeSuggestion >= 0) {
+        navigate(filteredTools[activeSuggestion].path);
+      } else {
+        handleSearch(e);
+      }
+      setShowSuggestions(false);
+    } else if (e.key === 'Escape') {
+      setShowSuggestions(false);
+      setActiveSuggestion(-1);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-[#FDEEDC]">
@@ -558,28 +544,7 @@ const Index = () => {
                   ))}
                 </ul>
               </div>
-              
-              {/* PDF Tools */}
-              <div>
-                <div className="flex items-center gap-2 mb-4 text-xl font-semibold text-[#dc2626]">
-                  <span role="img" aria-label="pdf">📄</span> PDF Tools
-                </div>
-                <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 px-2 md:px-0">
-                  {tools.filter(t => [
-                    'Merge PDF', 'Split PDF', 'Compress PDF', 'PDF to Word', 'Add Watermark', 'PDF Password Protector/Remover', 'PDF Editor'
-                  ].includes(t.title)).map(tool => (
-                    <li key={tool.title}>
-                      <Link to={tool.path} className="flex flex-col md:flex-row items-start md:items-center gap-2 md:gap-4 p-3 md:p-5 rounded-lg md:rounded-2xl bg-white shadow-sm border border-red-100 hover:bg-red-50 transition group text-xs md:text-base font-semibold min-h-[90px] md:min-h-[120px]">
-                        <tool.icon className="w-7 h-7 md:w-8 md:h-8 text-red-500 group-hover:scale-110 transition md:mt-1" />
-                        <div>
-                          <div className="font-bold text-gray-900 mb-1 text-xs md:text-base">{tool.title}</div>
-                          <div className="text-gray-600 text-xs md:text-sm font-normal">{tool.description}</div>
-                        </div>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+
             </div>
           </div>
         </div>

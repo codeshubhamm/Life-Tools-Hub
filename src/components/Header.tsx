@@ -1,7 +1,7 @@
 
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import { Moon, Sun, Search, Menu, X } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { Moon, Sun, Search, Menu, X, MessageCircle } from "lucide-react";
 import { Button } from "./ui/button";
 import { useTheme } from "./theme-provider";
 
@@ -10,10 +10,82 @@ interface HeaderProps {
   setSearchTerm: (value: string) => void;
 }
 
+// Sample tools data for search recommendations
+const tools = [
+  { title: "Age Calculator", path: "/tools/age-calculator", category: "calculator" },
+  { title: "BMI Calculator", path: "/tools/bmi-calculator", category: "health" },
+  { title: "Word Counter", path: "/tools/word-counter", category: "writing" },
+  { title: "Bill Splitter", path: "/tools/bill-splitter", category: "finance" },
+  { title: "Resume Builder", path: "/tools/resume-builder", category: "career" },
+  { title: "QR Code Generator", path: "/tools/qr-code-generator", category: "utility" },
+  { title: "Text to Speech", path: "/tools/text-to-speech", category: "utility" },
+  { title: "Speech to Text", path: "/tools/speech-to-text", category: "utility" }
+];
+
 const Header = ({ searchTerm, setSearchTerm }: HeaderProps) => {
   const { theme, setTheme } = useTheme();
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [showMobileSearch, setShowMobileSearch] = useState(false);
+  const [showSuggestions, setShowSuggestions] = useState(false);
+  const [showRequestTool, setShowRequestTool] = useState(false);
+  const [activeSuggestion, setActiveSuggestion] = useState(-1);
+  const searchRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
+
+  const filteredTools = searchTerm
+    ? tools.filter(tool =>
+        tool.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        tool.category.toLowerCase().includes(searchTerm.toLowerCase())
+      ).slice(0, 5)
+    : [];
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchTerm.trim() && filteredTools.length > 0) {
+      navigate(filteredTools[0].path);
+      setShowSuggestions(false);
+    } else if (searchTerm.trim()) {
+      navigate(`/tools?search=${encodeURIComponent(searchTerm)}`);
+      setShowSuggestions(false);
+    }
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (!showSuggestions || filteredTools.length === 0) return;
+    
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      setActiveSuggestion(prev => 
+        prev < filteredTools.length - 1 ? prev + 1 : prev
+      );
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      setActiveSuggestion(prev => prev > 0 ? prev - 1 : -1);
+    } else if (e.key === 'Enter') {
+      e.preventDefault();
+      if (activeSuggestion >= 0) {
+        navigate(filteredTools[activeSuggestion].path);
+        setShowSuggestions(false);
+      } else {
+        handleSearch(e);
+      }
+    } else if (e.key === 'Escape') {
+      setShowSuggestions(false);
+      setActiveSuggestion(-1);
+    }
+  };
+
+  // Close suggestions when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
+        setShowSuggestions(false);
+        setActiveSuggestion(-1);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-white shadow-md md:bg-background/95 md:backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -33,17 +105,68 @@ const Header = ({ searchTerm, setSearchTerm }: HeaderProps) => {
             <Link to="/about" className="text-sm font-medium nav-link">About</Link>
             <Link to="/support" className="text-sm font-medium nav-link">Support</Link>
           </nav>
-          <div className="relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 h-5 w-5" />
-            <input
-              type="text"
-              placeholder="Search tools..."
-              className="pl-10 pr-4 py-2 rounded-full border bg-white/90 dark:bg-gray-800/90 shadow focus:outline-none focus:ring-2 focus:ring-blue-400 text-sm w-48 transition-all"
-              aria-label="Search tools"
-              value={searchTerm}
-              onChange={e => setSearchTerm(e.target.value)}
-            />
+          <div className="relative" ref={searchRef}>
+            <form onSubmit={handleSearch}>
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 h-5 w-5" />
+              <input
+                type="text"
+                placeholder="Search tools..."
+                className="pl-10 pr-4 py-2 rounded-full border bg-white/90 dark:bg-gray-800/90 shadow focus:outline-none focus:ring-2 focus:ring-blue-400 text-sm w-48 transition-all"
+                aria-label="Search tools"
+                value={searchTerm}
+                onChange={e => {
+                  setSearchTerm(e.target.value);
+                  setShowSuggestions(e.target.value.length > 0);
+                  setActiveSuggestion(-1);
+                }}
+                onKeyDown={handleKeyDown}
+                onFocus={() => searchTerm && setShowSuggestions(true)}
+              />
+            </form>
+            {/* Search Suggestions */}
+            {showSuggestions && filteredTools.length > 0 && (
+              <div className="absolute top-full mt-2 w-64 bg-white dark:bg-gray-800 rounded-lg shadow-xl border z-50">
+                <div className="p-2">
+                  <div className="text-xs text-gray-500 mb-2">Suggestions:</div>
+                  {filteredTools.map((tool, index) => (
+                    <button
+                      key={tool.path}
+                      onClick={() => {
+                        navigate(tool.path);
+                        setShowSuggestions(false);
+                      }}
+                      className={`w-full text-left px-3 py-2 rounded-md text-sm hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors ${
+                        index === activeSuggestion ? 'bg-blue-50 dark:bg-blue-900/20' : ''
+                      }`}
+                    >
+                      <div className="font-medium">{tool.title}</div>
+                      <div className="text-xs text-gray-500 capitalize">{tool.category}</div>
+                    </button>
+                  ))}
+                </div>
+                <div className="border-t p-2">
+                  <button
+                    onClick={() => setShowRequestTool(true)}
+                    className="w-full text-left px-3 py-2 rounded-md text-sm hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors flex items-center gap-2"
+                  >
+                    <MessageCircle className="h-4 w-4" />
+                    <span>Request a tool</span>
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
+          
+          {/* Request Tool Button */}
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => setShowRequestTool(true)}
+            className="text-sm font-medium text-gray-600 hover:text-blue-600"
+          >
+            <MessageCircle className="h-4 w-4 mr-1" />
+            Request Tool
+          </Button>
           <a
             href="https://coff.ee/codewithshubhamm"
             target="_blank"
@@ -119,6 +242,53 @@ const Header = ({ searchTerm, setSearchTerm }: HeaderProps) => {
                   onChange={e => setSearchTerm(e.target.value)}
                   autoFocus
                 />
+              </div>
+            </div>
+          </div>
+        )}
+        
+        {/* Request Tool Modal */}
+        {showRequestTool && (
+          <div className="fixed inset-0 z-50 bg-black/40 flex items-center justify-center p-4">
+            <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-2xl p-6 w-full max-w-md animate-scale-in">
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-xl font-semibold flex items-center gap-2">
+                  <MessageCircle className="h-5 w-5 text-blue-500" />
+                  Request a Tool
+                </h3>
+                <Button variant="ghost" size="icon" onClick={() => setShowRequestTool(false)}>
+                  <X className="h-5 w-5" />
+                </Button>
+              </div>
+              <div className="space-y-4">
+                <p className="text-gray-600 dark:text-gray-300">
+                  Have an idea for a tool that would make your life easier? Let us know!
+                </p>
+                <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+                  <p className="text-sm text-blue-800 dark:text-blue-200 mb-2">
+                    📧 Send your tool request to:
+                  </p>
+                  <a 
+                    href="mailto:shubhamgunguwnwar07@gmail.com?subject=Tool Request - Life Tools Hub&body=Hi! I would like to request a new tool for Life Tools Hub:%0D%0A%0D%0ATool Name: %0D%0ADescription: %0D%0AFeatures needed: %0D%0A%0D%0AThank you!"
+                    className="text-blue-600 dark:text-blue-400 font-medium hover:underline"
+                  >
+                    shubhamgunguwnwar07@gmail.com
+                  </a>
+                </div>
+                <div className="flex gap-2 pt-2">
+                  <Button
+                    onClick={() => {
+                      window.open('mailto:shubhamgunguwnwar07@gmail.com?subject=Tool Request - Life Tools Hub&body=Hi! I would like to request a new tool for Life Tools Hub:%0D%0A%0D%0ATool Name: %0D%0ADescription: %0D%0AFeatures needed: %0D%0A%0D%0AThank you!');
+                      setShowRequestTool(false);
+                    }}
+                    className="flex-1"
+                  >
+                    Send Email
+                  </Button>
+                  <Button variant="outline" onClick={() => setShowRequestTool(false)} className="flex-1">
+                    Close
+                  </Button>
+                </div>
               </div>
             </div>
           </div>

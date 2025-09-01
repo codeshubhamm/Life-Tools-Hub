@@ -5,7 +5,7 @@ import { Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import {
-  Calculator, Heart, Type, DollarSign, FileText, User, GraduationCap, Calendar, PartyPopper, Mail, QrCode, Percent, Globe, Timer, Award, Quote, CreditCard, ArrowLeft, Ruler, Instagram, Lightbulb, PenTool, Mic, Volume2, Keyboard, Tag, IndianRupee, Users, Scissors, Archive, Image, Droplet, Shuffle
+  Calculator, Heart, Type, DollarSign, FileText, User, GraduationCap, Calendar, PartyPopper, Mail, QrCode, Percent, Globe, Timer, Award, Quote, CreditCard, ArrowLeft, Ruler, Instagram, Lightbulb, PenTool, Mic, Volume2, Keyboard, Tag, IndianRupee, Users, Shuffle
 } from "lucide-react";
 
 const tools = [
@@ -232,103 +232,10 @@ const tools = [
     icon: FileText,
     path: "/tools/invoice-generator",
     category: "business"
-  },
-
-  {
-    title: "Merge PDF",
-    description: "Combine multiple PDF files into one.",
-    icon: FileText,
-    path: "/tools/merge-pdf",
-    category: "pdf"
-  },
-  {
-    title: "Split PDF",
-    description: "Extract selected pages from a PDF.",
-    icon: Scissors,
-    path: "/tools/split-pdf",
-    category: "pdf"
-  },
-  {
-    title: "Compress PDF",
-    description: "Reduce the file size of your PDF.",
-    icon: Archive,
-    path: "/tools/compress-pdf",
-    category: "pdf"
-  },
-  {
-    title: "PDF to Word",
-    description: "Convert PDF files to editable Word documents.",
-    icon: FileText,
-    path: "/tools/pdf-to-word",
-    category: "pdf"
-  },
-  {
-    title: "Add Watermark",
-    description: "Add a watermark to your PDF file.",
-    icon: Droplet,
-    path: "/tools/add-watermark",
-    category: "pdf"
-  },
-  {
-    title: 'PDF Password Protector/Remover',
-    description: 'Add or remove password protection from your PDF files.',
-    icon: FileText,
-    path: '/tools/pdf-password',
-    category: 'pdf'
-  },
-  {
-    title: 'PDF Editor',
-    description: 'Edit PDF content, metadata, and more.',
-    icon: FileText,
-    path: '/tools/pdf-editor',
-    category: 'pdf'
-  },
-  {
-    title: 'PDF to Image Converter',
-    description: 'Convert PDF pages to images.',
-    icon: Image,
-    path: '/tools/pdf-to-image',
-    category: 'pdf'
   }
 ];
 
-const pdfTools = [
-  {
-    title: "Merge PDF",
-    description: "Combine multiple PDF files into one.",
-    icon: FileText,
-    path: "/tools/merge-pdf",
-    category: "pdf"
-  },
-  {
-    title: "Split PDF",
-    description: "Extract selected pages from a PDF.",
-    icon: Scissors,
-    path: "/tools/split-pdf",
-    category: "pdf"
-  },
-  {
-    title: "Compress PDF",
-    description: "Reduce the file size of your PDF.",
-    icon: Archive,
-    path: "/tools/compress-pdf",
-    category: "pdf"
-  },
-  {
-    title: "PDF to Word",
-    description: "Convert PDF files to editable Word documents.",
-    icon: FileText,
-    path: "/tools/pdf-to-word",
-    category: "pdf"
-  },
-  {
-    title: "Add Watermark",
-    description: "Add a watermark to your PDF file.",
-    icon: Droplet,
-    path: "/tools/add-watermark",
-    category: "pdf"
-  }
-];
+
 
 const categories = [
   { label: "All", value: "all" },
